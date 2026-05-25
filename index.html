@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Optimization -->
+  <title>Españoles en Miami – El Portal de la Comunidad Española en el Sur de la Florida</title>
+  <meta name="description"
+    content="Descubre todo lo relacionado con Españoles en Miami y el sur de la Florida. Directorio de restaurantes de tapas, trámites del consulado, eventos culturales, guía de mudanza y bolsa de trabajo.">
+  <meta name="keywords"
+    content="Españoles en Miami, españoles en Miami, consulado español Miami, restaurantes españoles Miami, tapas Miami, vivir en Miami, invertir en Miami">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Españoles en Miami – El Portal Definitivo para la Comunidad">
+  <meta property="og:description"
+    content="Tu guía completa de negocios, eventos, trámites y comunidad española en Florida.">
+  <meta property="og:type" content="website">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Instant CSS Language Toggle Utility */
+    body.lang-en .lang-es {
+      display: none !important;
+    }
+
+    body.lang-es .lang-en {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body class="lang-es">
+
+  <div class="app-container">
+
+    <!-- --- TOP NAVIGATION BAR --- -->
+    <header class="top-nav">
+      <div class="logo-container">
+        <div class="logo-icon">E</div>
+        <div class="logo-text">
+          <h1>Españoles en Miami</h1>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu">
+        <div class="nav-menu-item active" data-target="home" id="desk-nav-home">
+          <span class="lang-es">Inicio</span>
+          <span class="lang-en">Home</span>
+        </div>
+        <div class="nav-menu-item" data-target="directory" id="desk-nav-directory">
+          <span class="lang-es">Mapa y Sitios</span>
+          <span class="lang-en">Map & Spots</span>
+        </div>
+        <div class="nav-menu-item" data-target="events" id="desk-nav-events">
+          <span class="lang-es">Eventos</span>
+          <span class="lang-en">Events</span>
+        </div>
+        <div class="nav-menu-item" data-target="resources" id="desk-nav-resources">
+          <span class="lang-es">Servicios Consulares</span>
+          <span class="lang-en">Consular Services</span>
+        </div>
+        <div class="nav-menu-item" data-target="marketplace" id="desk-nav-marketplace">
+          <span class="lang-es">Anuncios</span>
+          <span class="lang-en">Classifieds</span>
+        </div>
+        <div class="nav-menu-item" data-target="contact" id="desk-nav-contact">
+          <span class="lang-es">Contacto</span>
+          <span class="lang-en">Contact Us</span>
+        </div>
+      </nav>
+
+      <!-- Theme and Language controls -->
+      <div class="nav-controls">
+        <button class="control-btn lang-switch" id="langToggleBtn" aria-label="Cambiar idioma / Toggle Language">
+          EN
+        </button>
+        <button class="control-btn" id="themeToggleBtn" aria-label="Cambiar tema / Toggle Theme">
+          <!-- Dark mode moon icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="theme-icon-dark">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- --- HERO & SEARCH DASHBOARD --- -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <span class="hero-badge">
+          <span class="lang-es">El Hub Español en Florida</span>
+          <span class="lang-en">The Spanish Hub in Florida</span>
+        </span>
+        <h1 class="lang-es">Desde el Sur de la Florida</h1>
+        <h1 class="lang-en">From South Florida</h1>
+        <p class="lang-es">La plataforma definitiva para residentes, estudiantes, inversores, turistas y entusiastas de
+          la cultura española en el sur de la Florida.</p>
+        <p class="lang-en">The definitive platform for residents, students, investors, tourists, and Spanish culture
+          enthusiasts in South Florida.</p>
+
+        <div class="search-wrapper">
+          <svg class="search-icon-svg" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" id="globalSearch"
+            placeholder="Busca tapas, consulado, visados, vivienda..."
+            data-placeholder-es="Busca tapas, consulado, visados, vivienda..."
+            data-placeholder-en="Search tapas, consulate, visas, housing...">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 1: HOME ==================== -->
+    <main class="app-section active" id="sec-home">
+      <div class="grid-cols-3">
+
+        <!-- Welcome Board -->
+        <div class="glass-card card-accent-border">
+          <h3 class="lang-es" style="color:var(--color-primary)">¡Bienvenidos a Miami! 🌴</h3>
+          <h3 class="lang-en" style="color:var(--color-primary)">Welcome to Miami! 🌴</h3>
+          <p class="lang-es">Aquí se junta el azul del Atlántico con la brisa del Mediterráneo. Tanto si acabas de
+            aterrizar como si llevas años residiendo, este es tu hogar digital. Explora restaurantes de tapas
+            tradicionales, accede a guías prácticas de llegada o entérate de las actividades de networking en Miami.</p>
+          <p class="lang-en">Here the blue of the Atlantic meets the Mediterranean breeze. Whether you've just landed or
+            have been here for years, this is your digital home. Explore traditional tapas bars, access arrival
+            checklists, or join upcoming local networking events.</p>
+          <button class="btn btn-primary" onclick="switchSection('directory')">
+            <span class="lang-es">Explorar Mapa</span>
+            <span class="lang-en">Explore Map</span>
+          </button>
+        </div>
+
+        <!-- Featured Spot Summary -->
+        <div class="glass-card card-accent-border">
+          <h3 class="lang-es">Trámites Consulares 🏢</h3>
+          <h3 class="lang-en">Consular Procedures 🏢</h3>
+          <p class="lang-es">¿Necesitas renovar tu pasaporte español, darte de alta consular en el CERA, solicitar el
+            NIE o tramitar visados? Hemos resumido las instrucciones oficiales para facilitarte el camino sin
+            complicaciones.</p>
+          <p class="lang-en">Need to renew your Spanish passport, register in the consular census, apply for an NIE, or
+            secure travel visas? We have compiled simplified guides to make the official processes hassle-free.</p>
+          <button class="btn btn-secondary" onclick="switchSection('resources'); openResourceTab('consular')">
+            <span class="lang-es">Servicios Consulares</span>
+            <span class="lang-en">Consular Services</span>
+          </button>
+        </div>
+
+        <!-- Community Bulletin Summary -->
+        <div class="glass-card card-accent-border">
+          <h3 class="lang-es">Vivienda 💼</h3>
+          <h3 class="lang-en">Housing 💼</h3>
+          <p class="lang-es">Encuentra información sobre vivienda, habitaciones
+            de alquiler, traspasos de negocios y contactos directos de la comunidad local. ¡Sube tu propio anuncio
+            gratis!</p>
+          <p class="lang-en">Find career opportunities in Spanish corporations based in Florida, shared apartments,
+            business transfers, and direct local connections. Post your own listing for free!</p>
+          <button class="btn btn-secondary" onclick="switchSection('marketplace')">
+            <span class="lang-es">Ver Anuncios</span>
+            <span class="lang-en">View Classifieds</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Quick Quick-Stats / Callouts -->
+      <section style="margin-top: 3rem;">
+        <h2 class="lang-es">Destacados de la Comunidad</h2>
+        <h2 class="lang-en">Community Highlights</h2>
+        <br>
+        <div class="grid-cols-2" style="margin-top: 1rem;">
+
+          <div class="glass-card" style="display:flex; align-items:center; gap:1.25rem;">
+            <div class="logo-icon" style="background:var(--color-primary)">🇪🇸</div>
+            <div>
+              <h4 class="lang-es">Consulado General de España en Miami</h4>
+              <h4 class="lang-en">Consulate General of Spain in Miami</h4>
+              <p class="lang-es" style="margin:0; font-size:0.85rem;">Ubicado en Coral Gables, brinda servicios para
+                toda Florida.</p>
+              <p class="lang-en" style="margin:0; font-size:0.85rem;">Located in Coral Gables, serving all of Florida.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card" style="display:flex; align-items:center; gap:1.25rem;">
+            <div class="logo-icon" style="background:var(--color-accent)">🍷</div>
+            <div>
+              <h4 class="lang-es">Ruta Gastronómica Española</h4>
+              <h4 class="lang-en">Spanish Gastronomic Route</h4>
+              <p class="lang-es" style="margin:0; font-size:0.85rem;">Descubre 20+ tabernas, arrocerías y tiendas de
+                importación selecta.</p>
+              <p class="lang-en" style="margin:0; font-size:0.85rem;">Discover 20+ authentic taverns, paella joints, and
+                gourmet imports.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== SECTION 2: DIRECTORY / MAP ==================== -->
+    <section class="app-section" id="sec-directory">
+      <h2 class="lang-es">Directorio y Mapa Interactivo</h2>
+      <h2 class="lang-en">Directory & Interactive Map</h2>
+      <p class="lang-es">Descubre instituciones, escuelas bilingües y las mejores bodegas tradicionales españolas en
+        Miami.</p>
+      <p class="lang-en">Discover institutions, bilingual prep schools, and the best traditional Spanish dining in
+        Miami.</p>
+
+      <!-- Category tabs -->
+      <div class="filter-tabs" id="directoryFilters">
+        <button class="filter-tab active" data-category="all">
+          <span class="lang-es">Todos</span>
+          <span class="lang-en">All</span>
+        </button>
+        <button class="filter-tab" data-category="dining">
+          <span class="lang-es">Gastronomía y Copas</span>
+          <span class="lang-en">Dining & Drinks</span>
+        </button>
+        <button class="filter-tab" data-category="institution">
+          <span class="lang-es">Instituciones y Negocios</span>
+          <span class="lang-en">Institutions & Business</span>
+        </button>
+        <button class="filter-tab" data-category="education">
+          <span class="lang-es">Educación y Colegios</span>
+          <span class="lang-en">Education & Schools</span>
+        </button>
+      </div>
+
+      <div class="map-layout">
+
+        <!-- Interactive SVG Vector Map -->
+        <div class="map-container">
+          <div class="svg-map-wrapper">
+            <!-- Sleek SVG Vector Map of Miami Coast & Neighborhoods -->
+            <svg class="svg-map" viewBox="0 0 400 300" id="miamiSvgMap" xmlns="http://www.w3.org/2000/svg">
+              <!-- Water body background -->
+              <rect width="400" height="300" class="svg-water" />
+              <!-- Shoreland / Mainland outline -->
+              <path d="M0,0 L210,0 Q215,60 195,120 T180,240 T170,300 L0,300 Z" class="svg-land" />
+              <!-- Barrier islands (Key Biscayne & Miami Beach) -->
+              <path d="M230,20 Q240,80 230,140" fill="none" stroke="hsl(30, 20%, 92%)" stroke-width="12"
+                stroke-linecap="round" class="svg-land" />
+              <path d="M210,210 Q225,230 220,260" fill="none" stroke="hsl(30, 20%, 92%)" stroke-width="18"
+                stroke-linecap="round" class="svg-land" />
+
+              <!-- Major Highways / Streets for scale -->
+              <path d="M120,0 L120,300" class="svg-highway" /> <!-- I-95 simulation -->
+              <path d="M0,150 L230,150" class="svg-highway" /> <!-- Dolphin Expy simulation -->
+
+              <!-- Neighborhood visual tags (SVG texts) -->
+              <text x="70" y="40" font-size="8" fill="var(--color-text-muted)" opacity="0.6"
+                font-weight="700">Doral</text>
+              <text x="140" y="90" font-size="8" fill="var(--color-text-muted)" opacity="0.6"
+                font-weight="700">Brickell</text>
+              <text x="110" y="145" font-size="8" fill="var(--color-text-muted)" opacity="0.6" font-weight="700">Coral
+                Gables</text>
+              <text x="240" y="80" font-size="8" fill="var(--color-text-muted)" opacity="0.6" font-weight="700">South
+                Beach</text>
+              <text x="220" y="270" font-size="8" fill="var(--color-text-muted)" opacity="0.6" font-weight="700">Key
+                Biscayne</text>
+
+              <!-- Hotspot Markers (PINS) -->
+              <g class="map-pin" data-id="consulado" transform="translate(115, 155)">
+                <circle r="7"></circle>
+                <text y="-10">🏢</text>
+              </g>
+              <g class="map-pin" data-id="cce" transform="translate(130, 110)">
+                <circle r="7"></circle>
+                <text y="-10">🎭</text>
+              </g>
+              <g class="map-pin" data-id="chamber" transform="translate(145, 95)">
+                <circle r="7"></circle>
+                <text y="-10">💼</text>
+              </g>
+              <g class="map-pin" data-id="turismo" transform="translate(138, 85)">
+                <circle r="7"></circle>
+                <text y="-10">✈️</text>
+              </g>
+              <g class="map-pin" data-id="xixon" transform="translate(125, 130)">
+                <circle r="7"></circle>
+                <text y="-10">🍷</text>
+              </g>
+              <g class="map-pin" data-id="juanchos" transform="translate(100, 120)">
+                <circle r="7"></circle>
+                <text y="-10">🥘</text>
+              </g>
+              <g class="map-pin" data-id="bulla" transform="translate(90, 160)">
+                <circle r="7"></circle>
+                <text y="-10">🍺</text>
+              </g>
+              <g class="map-pin" data-id="ispa" transform="translate(105, 175)">
+                <circle r="7"></circle>
+                <text y="-10">🎓</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Category List underneath map -->
+          <div class="directory-list" id="directoryList">
+            <!-- Dynamic Injection from JS -->
+          </div>
+        </div>
+
+        <!-- Live Detail Panel Card (Glassmorphic) -->
+        <div class="glass-card card-accent-border detail-panel" id="detailPanel">
+          <div style="text-align:center; padding: 2rem 0;" id="detailEmptyState">
+            <span style="font-size:3rem;">📍</span>
+            <h4 class="lang-es">Selecciona un punto en el mapa</h4>
+            <h4 class="lang-en">Select a spot on the map</h4>
+            <p class="lang-es">Haz clic en los iconos del mapa o en la lista lateral para ver horarios, contactos,
+              dirección y valoraciones.</p>
+            <p class="lang-en">Click on the map icons or the directory list to see reviews, contact details, directions,
+              and hours.</p>
+          </div>
+
+          <div id="detailContent" style="display:none;">
+            <!-- Dynamic Injection from JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 3: EVENTS CALENDAR ==================== -->
+    <section class="app-section" id="sec-events">
+      <div class="events-header-row">
+        <div>
+          <h2 class="lang-es">Agenda Cultural y Eventos</h2>
+          <h2 class="lang-en">Cultural Calendar & Events</h2>
+          <p class="lang-es" style="margin:0;">No te pierdas las catas de vinos, recitales de flamenco y ferias
+            comerciales españolas.</p>
+          <p class="lang-en" style="margin:0;">Stay updated on wine tastings, flamenco showcases, and Spanish business
+            summits.</p>
+        </div>
+
+        <div class="view-toggle">
+          <button class="view-toggle-btn active" id="eventViewList">
+            <span class="lang-es">Lista</span>
+            <span class="lang-en">List</span>
+          </button>
+          <button class="view-toggle-btn" id="eventViewGrid">
+            <span class="lang-es">Calendario</span>
+            <span class="lang-en">Calendar</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-tabs" id="eventFilters">
+        <button class="filter-tab active" data-event-cat="all">
+          <span class="lang-es">Todos</span>
+          <span class="lang-en">All</span>
+        </button>
+        <button class="filter-tab" data-event-cat="culture">
+          <span class="lang-es">Cultura y Música</span>
+          <span class="lang-en">Culture & Music</span>
+        </button>
+        <button class="filter-tab" data-event-cat="business">
+          <span class="lang-es">Networking y Negocios</span>
+          <span class="lang-en">Business & Networking</span>
+        </button>
+        <button class="filter-tab" data-event-cat="gastronomy">
+          <span class="lang-es">Gastronomía</span>
+          <span class="lang-en">Gastronomy</span>
+        </button>
+      </div>
+
+      <!-- Events List Feed -->
+      <div class="grid-cols-2" id="eventsListContainer">
+        <!-- Dynamic Injection from JS -->
+      </div>
+
+      <!-- Simulated Monthly Calendar View (hidden by default) -->
+      <div class="glass-card" id="eventsCalendarGridContainer" style="display:none; padding:2rem;">
+        <h3 style="text-align:center; margin-bottom:1rem; color:var(--color-primary)" id="calendarMonthTitle">Mayo 2026
+        </h3>
+        <div
+          style="display:grid; grid-template-columns: repeat(7, 1fr); gap:0.5rem; text-align:center; font-weight:700; border-bottom:1px solid var(--color-border); padding-bottom:0.5rem; margin-bottom:0.5rem; font-size:0.8rem;">
+          <span class="lang-es">LUN</span><span class="lang-en">MON</span>
+          <span class="lang-es">MAR</span><span class="lang-en">TUE</span>
+          <span class="lang-es">MIÉ</span><span class="lang-en">WED</span>
+          <span class="lang-es">JUE</span><span class="lang-en">THU</span>
+          <span class="lang-es">VIE</span><span class="lang-en">FRI</span>
+          <span class="lang-es">SÁB</span><span class="lang-en">SAT</span>
+          <span class="lang-es">DOM</span><span class="lang-en">SUN</span>
+        </div>
+        <div style="display:grid; grid-template-columns: repeat(7, 1fr); gap:0.5rem; height:280px;"
+          id="calendarDaysGrid">
+          <!-- Calendar Days dynamically generated with markers for event days -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 4: RELOCATION HUB ==================== -->
+    <section class="app-section" id="sec-resources">
+      <h2 class="lang-es">Servicios Consulares</h2>
+      <h2 class="lang-en">Consular Services</h2>
+      <p class="lang-es">Toda la información oficial y consejos de la comunidad estructurados para tu llegada y estancia
+        en Florida.</p>
+      <p class="lang-en">Official resources, links, and community tips structured for your arrival and stay in Florida.
+      </p>
+
+      <div class="tabbed-layout">
+        <!-- Sidebar Tabs -->
+        <aside class="tab-nav">
+          <button class="tab-nav-btn active" data-tab="consular">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span class="lang-es">Trámites Consulares</span>
+            <span class="lang-en">Consular Procedures</span>
+          </button>
+          <button class="tab-nav-btn" data-tab="students">
+            <svg viewBox="0 0 24 24">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+            </svg>
+            <span class="lang-es">Estudiantes y Colegios</span>
+            <span class="lang-en">Students & Education</span>
+          </button>
+          <button class="tab-nav-btn" data-tab="investors">
+            <svg viewBox="0 0 24 24">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <span class="lang-es">Negocios e Inversión</span>
+            <span class="lang-en">Business & Investing</span>
+          </button>
+          <button class="tab-nav-btn" data-tab="tourism">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span class="lang-es">Turismo de España</span>
+            <span class="lang-en">Official Spain Tourism</span>
+          </button>
+          <button class="tab-nav-btn" data-tab="eu-consulates">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              <path d="M2 12h20"></path>
+            </svg>
+            <span class="lang-es">Consulados de la UE</span>
+            <span class="lang-en">EU Consulates</span>
+          </button>
+        </aside>
+
+        <!-- Dynamic Tab contents -->
+        <div class="glass-card" style="padding: 2rem;">
+
+          <!-- TAB 2: CONSULAR -->
+          <div class="tab-content active" id="tab-consular">
+            <h3 class="lang-es">Servicios Consulares 🏢</h3>
+            <h3 class="lang-en">Spanish Consulate Services 🏢</h3>
+            <p class="lang-es">El Consulado General en Miami está ubicado en Coral Gables (2655 Le Jeune Rd). Aquí
+              tienes los accesos rápidos a los trámites más buscados:</p>
+            <p class="lang-en">The Consulate General in Miami is located in Coral Gables (2655 Le Jeune Rd). Here is
+              quick-reference information for common consular tasks:</p>
+            <br>
+
+            <div class="guide-step">
+              <div class="guide-step-num">✓</div>
+              <div class="guide-step-body">
+                <h4 class="lang-es">Alta Consular (Inscripción en el Registro de Matrícula)</h4>
+                <h4 class="lang-en">Consular Registration (Registro de Matrícula)</h4>
+                <p class="lang-es">Esencial para votar desde el extranjero, renovar pasaportes y certificar tu
+                  residencia de cara a la hacienda española. Requiere rellenar el formulario de alta y aportar una foto
+                  reciente, copia del pasaporte y comprobante de domicilio en Florida.</p>
+                <p class="lang-en">Essential to vote from abroad, renew passports, and prove residency for Spanish tax
+                  declarations. Requires submitting the registration form along with a passport-style photo, passport
+                  copy, and Florida utility bill.</p>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-step-num">✓</div>
+              <div class="guide-step-body">
+                <h4 class="lang-es">Renovación de Pasaporte Español</h4>
+                <h4 class="lang-en">Spanish Passport Renewal</h4>
+                <p class="lang-es">Debes solicitar cita previa online en la web del Consulado. El día de la cita acude
+                  con tu pasaporte anterior, una fotografía tamaño carné de cara, el pago de las tasas en efectivo
+                  (aproximadamente $33) y el alta consular activa.</p>
+                <p class="lang-en">Must be booked in advance via the Consulate's online appointment system. Bring your
+                  current passport, one recent passport-sized color photo, the active consular registration, and the
+                  consular fee in exact cash (approx. $33).</p>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-step-num">✓</div>
+              <div class="guide-step-body">
+                <h4 class="lang-es">Solicitud del NIE para No Residentes</h4>
+                <h4 class="lang-en">Applying for a Spanish NIE (For Non-Residents)</h4>
+                <p class="lang-es">Necesario para comprar propiedades, heredar o abrir negocios en España. Se puede
+                  solicitar en el Consulado de Miami rellenando el modelo EX-15, el impreso de tasas 790-012 y abonando
+                  la tasa correspondiente.</p>
+                <p class="lang-en">Required for purchasing property, inheriting assets, or launching businesses in
+                  Spain. Can be requested at the Consulate in Miami by submitting form EX-15, tax form 790-012, and
+                  paying the nominal fee.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: STUDENTS -->
+          <div class="tab-content" id="tab-students">
+            <h3 class="lang-es">Educación y Programas Bilingües 🎓</h3>
+            <h3 class="lang-en">Education & Bilingual Curriculums 🎓</h3>
+            <p class="lang-es">Miami destaca por una estrecha relación escolar con España, facilitada por programas
+              conjuntos del Ministerio de Educación de España y el distrito escolar de Miami-Dade:</p>
+            <p class="lang-en">Miami stands out for its strong academic partnerships with Spain, supported by joint
+              programs between Spain's Ministry of Education and Miami-Dade County Public Schools:</p>
+            <br>
+
+            <div class="guide-step">
+              <div class="guide-step-body">
+                <h4 class="lang-es">El Programa ISA (International Studies Academies)</h4>
+                <h4 class="lang-en">The ISA (International Studies Academies) Program</h4>
+                <p class="lang-es">Una red de colegios públicos en Miami que imparten un currículo bilingüe de alto
+                  rendimiento avalado por el gobierno de España. Escuelas destacadas incluyen <strong>ISPA</strong>
+                  (International Studies Preparatory Academy) en Coral Gables y Sunset Elementary.</p>
+                <p class="lang-en">A network of public schools in Miami offering a rigorous bilingual curriculum
+                  endorsed by Spain's government. Top institutions include <strong>ISPA</strong> (International Studies
+                  Preparatory Academy) in Coral Gables and Sunset Elementary.</p>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-step-body">
+                <h4 class="lang-es">Visados de Estudiante (F-1 / J-1) y Auxiliares de Conversación</h4>
+                <h4 class="lang-en">Student Visas (F-1/J-1) & Language Assistants</h4>
+                <p class="lang-es">Cada año, cientos de jóvenes españoles llegan a Miami como Auxiliares de Conversación
+                  en colegios locales, coordinados por las Oficinas de Educación de la Embajada. El visado J-1 es el
+                  vehículo oficial para estas estancias.</p>
+                <p class="lang-en">Every year, hundreds of young Spanish nationals relocate to Miami as Language
+                  Assistants in public schools, managed by the Spanish Embassy's Education Offices. The J-1 visa is the
+                  standard visa for these educational programs.</p>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-step-body">
+                <h4 class="lang-es">Programas Magnet de Estudios Internacionales (M-DCPS) 🏫</h4>
+                <h4 class="lang-en">International Studies Magnet Programs (M-DCPS) 🏫</h4>
+                <p class="lang-es">Los programas magnet de Estudios Internacionales de las <a href="https://yourchoicemiami.org" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: underline; font-weight: 600;">Escuelas Públicas del Condado de Miami-Dade (M-DCPS)</a> ofrecen un currículo bilingüe avanzado de inmersión profunda. Opciones de primer nivel:</p>
+                <p class="lang-en">The International Studies magnet programs in <a href="https://yourchoicemiami.org" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: underline; font-weight: 600;">Miami-Dade County Public Schools (M-DCPS)</a> offer an advanced bilingual curriculum with deep language immersion. Premier options include:</p>
+                
+                <ul class="lang-es" style="margin-top: 0.75rem; padding-left: 1.25rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.6rem; color: var(--color-text-main); list-style-type: disc;">
+                  <li><strong>Escuela Secundaria / High School:</strong> 
+                    <br><em><a href="https://ispa.dadeschools.net" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: underline; font-weight: 600;">International Studies Preparatory Academy - ISPA (Coral Gables)</a></em> (Grados 9–12)
+                    <br>Currículo internacional riguroso con sólida inmersión lingüística. Los estudiantes pueden obtener un diploma estadounidense y credenciales internacionales oficiales a través de acuerdos directos con ministerios de educación europeos (incluyendo España).
+                  </li>
+                  <li><strong>Escuela Intermedia / Middle School:</strong> 
+                    <br><em><a href="https://gwcarvermiddle.org" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: underline; font-weight: 600;">George Washington Carver Middle School International Studies Program</a></em> (Grados 6–8)
+                    <br>Ofrece itinerarios de Estudios Internacionales en español, francés, italiano y alemán. Múltiples asignaturas académicas principales se enseñan directamente en el idioma objetivo.
+                  </li>
+                  <li><strong>Línea de Enlace K–8 / K–8 Pipeline Schools:</strong>
+                    <br>Diversas escuelas primarias (como la destacada <a href="https://sunsetelementary.org" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: underline; font-weight: 600;">Sunset Elementary School</a>) y centros K–8 preparan a los estudiantes y los canalizan directamente hacia estos prestigiosos programas de intermedia y secundaria, con itinerarios bilingües en:
+                    <br>🇪🇸 Español | 🇫🇷 Francés | 🇮🇹 Italiano | 🇩🇪 Alemán
+                  </li>
+                </ul>
+
+                <ul class="lang-en" style="margin-top: 0.75rem; padding-left: 1.25rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.6rem; color: var(--color-text-main); list-style-type: disc;">
+                  <li><strong>High School:</strong> 
+                    <br><em><a href="https://ispa.dadeschools.net" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: underline; font-weight: 600;">International Studies Preparatory Academy - ISPA (Coral Gables)</a></em> (Grades 9–12)
+                    <br>International curriculum with strong language immersion programs. Students can earn both a U.S. diploma and official international credentials through partnerships with European education ministries (including Spain's).
+                  </li>
+                  <li><strong>Middle School:</strong> 
+                    <br><em><a href="https://gwcarvermiddle.org" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: underline; font-weight: 600;">George Washington Carver Middle School International Studies Program</a></em> (Grades 6–8)
+                    <br>Offers International Studies tracks in Spanish, French, Italian, and German. Some academic subjects are taught in the target language.
+                  </li>
+                  <li><strong>K–8 Pipeline Schools:</strong>
+                    <br>Several elementary schools (such as the renowned <a href="https://sunsetelementary.org" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: underline; font-weight: 600;">Sunset Elementary School</a>) and K–8 schools feed students into the International Studies middle and high school programs, including language immersion tracks in:
+                    <br>🇪🇸 Spanish | 🇫🇷 French | 🇮🇹 Italian | 🇩🇪 German
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: INVESTORS -->
+          <div class="tab-content" id="tab-investors">
+            <h3 class="lang-es">Inversión y Negocios en Florida 💼</h3>
+            <h3 class="lang-en">Investing & Doing Business in Florida 💼</h3>
+            <p class="lang-es">Florida es la puerta de entrada natural para las empresas de España hacia América Latina
+              y el mercado estadounidense:</p>
+            <p class="lang-en">Florida serves as the natural gateway for Spanish businesses entering the Latin American
+              and US markets:</p>
+            <br>
+
+            <div class="guide-step">
+              <div class="guide-step-body">
+                <h4 class="lang-es">Constitución de Sociedades (LLC / Inc)</h4>
+                <h4 class="lang-en">Company Incorporation (LLC / Corp)</h4>
+                <p class="lang-es">Establecer una sociedad limitada (LLC) en Florida es rápido y eficiente a través de
+                  la web oficial del estado <strong>Sunbiz.org</strong>. Los costes de tasas anuales son reducidos en
+                  comparación con Europa.</p>
+                <p class="lang-en">Setting up a Limited Liability Company (LLC) in Florida is fast and fully online via
+                  the official state portal <strong>Sunbiz.org</strong>. Recurring annual fees are highly competitive
+                  compared to European alternatives.</p>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-step-body">
+                <h4 class="lang-es">Cámara de Comercio de España en Estados Unidos</h4>
+                <h4 class="lang-en">Spain-US Chamber of Commerce</h4>
+                <p class="lang-es">Con sede principal en Miami, es el principal punto de networking empresarial.
+                  Organizan mesas redondas mensuales, asesoran en implantación comercial y facilitan visados de
+                  transferencia interna (L-1) o de inversor (E-2).</p>
+                <p class="lang-en">Based in Miami, this chamber is the premier hub for corporate networking. They host
+                  monthly business panels, guide commercial expansions, and assist with investor visas (E-2) or
+                  intracompany transfers (L-1).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 5: TOURISM -->
+          <div class="tab-content" id="tab-tourism">
+            <h3 class="lang-es">Oficina de Turismo de España en Miami (Turespaña) ✈️</h3>
+            <h3 class="lang-en">Tourist Office of Spain in Miami (Turespaña) ✈️</h3>
+            <p class="lang-es">La Oficina de Turismo de España en Miami (ubicada en Brickell) es una de las
+              representaciones oficiales en el extranjero de <strong>Turespaña</strong>. Su principal cometido es
+              promocionar los diversos destinos de España y dar soporte a viajeros:</p>
+            <p class="lang-en">The Tourist Office of Spain in Miami (located in Brickell) is the official representative
+              office of <strong>Turespaña</strong>. Its mission is to promote Spain's diverse destinations and assist
+              travelers planning their trips:</p>
+            <br>
+
+            <div class="guide-step">
+              <div class="guide-step-body">
+                <h4 class="lang-es">Portal de Turismo Oficial - Spain.info</h4>
+                <h4 class="lang-en">Official Spain Tourism Portal - Spain.info</h4>
+                <p class="lang-es">Encuentra ideas de rutas, mapas interactivos, guías descargables de ciudades (Madrid,
+                  Barcelona, Sevilla, Santiago de Compostela) y agendas culturales actualizadas para planificar tus
+                  próximas vacaciones.</p>
+                <p class="lang-en">Find curated travel itineraries, interactive maps, downloadable city guides (Madrid,
+                  Barcelona, Seville, Santiago de Compostela), and updated cultural agendas to plan your next vacation.
+                </p>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-step-body">
+                <h4 class="lang-es">Recursos y Folletos de Viaje Gratuitos</h4>
+                <h4 class="lang-en">Free Travel Brochures & Regional Guides</h4>
+                <p class="lang-es">Puedes contactar con la oficina o visitarla en Brickell para obtener de forma
+                  gratuita catálogos oficiales de turismo gastronómico, rutas de senderismo, turismo cultural e
+                  información de los Paradores Nacionales de Turismo.</p>
+                <p class="lang-en">You can contact the Brickell office or visit in person to secure free official
+                  catalogues detailing culinary routes, hiking paths, cultural highlights, and details on Spain's
+                  Paradores (historic castle hotels).</p>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-step-body">
+                <h4 class="lang-es">Requisitos de Entrada y Visados de Turismo</h4>
+                <h4 class="lang-en">Entry Requirements & ETIAS Regulations</h4>
+                <p class="lang-es">Consulte las guías informativas sobre requisitos de pasaporte, duración de estancias
+                  de turismo (límite de 90 días en espacio Schengen para ciudadanos estadounidenses) y el nuevo
+                  prerrequisito de autorización de viaje ETIAS.</p>
+                <p class="lang-en">Access updated guidelines detailing entry requirements, tourist stay limits (up to 90
+                  days in the Schengen Area for US passport holders), and details on the upcoming ETIAS travel
+                  authorization system.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 6: EU CONSULATES -->
+          <div class="tab-content" id="tab-eu-consulates">
+            <h3 class="lang-es">Consulados de la Unión Europea 🇪🇺</h3>
+            <h3 class="lang-en">European Union Consulates 🇪🇺</h3>
+            <p class="lang-es">Directorio completo de los Consulados Generales y Consulados Honorarios de los estados miembros de la Unión Europea en el área de Miami y Coral Gables.</p>
+            <p class="lang-en">Complete directory of European Union member states' Consulates General and Honorary Consulates in the Miami and Coral Gables area.</p>
+            
+            <div class="eu-disclaimer-card" style="margin: 1.5rem 0; padding: 1.25rem; border-radius: var(--radius-md); border-left: 4px solid var(--color-primary); background: var(--color-accent-light); display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="font-size: 1.25rem;">💡</span>
+              <div>
+                <p class="lang-es" style="margin: 0; font-size: 0.85rem; font-weight: 500; color: var(--color-secondary);">
+                  <strong>Nota sobre trámites y visados:</strong> Los <strong>Consulados Generales</strong> ofrecen servicios diplomáticos y de visados completos. Los <strong>Consulados Honorarios</strong> tienen funciones consulares limitadas y de asistencia a sus connacionales en caso de emergencia, pero <u>no emiten visados ordinarios</u>.
+                </p>
+                <p class="lang-en" style="margin: 0; font-size: 0.85rem; font-weight: 500; color: var(--color-secondary);">
+                  <strong>Note on procedures and visas:</strong> <strong>Consulates General</strong> offer full diplomatic and visa services. <strong>Honorary Consulates</strong> provide limited citizen support and emergency assistance but <u>do not process regular visa applications</u>.
+                </p>
+              </div>
+            </div>
+
+            <!-- Sub-filters inside the tab -->
+            <div class="filter-tabs" id="euConsulateFilters" style="margin-bottom: 1.5rem;">
+              <button class="filter-tab active" data-eu-cat="all">
+                <span class="lang-es">Todos</span>
+                <span class="lang-en">All</span>
+              </button>
+              <button class="filter-tab" data-eu-cat="general">
+                <span class="lang-es">Consulados Generales</span>
+                <span class="lang-en">Consulates General</span>
+              </button>
+              <button class="filter-tab" data-eu-cat="honorary">
+                <span class="lang-es">Consulados Honorarios</span>
+                <span class="lang-en">Honorary Consulates</span>
+              </button>
+            </div>
+
+            <!-- Container for EU Consulate Cards -->
+            <div id="euConsulatesContainer" class="grid-cols-2" style="margin-top: 1rem;">
+              <!-- Dynamically injected via app.js -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 5: MARKETPLACE ==================== -->
+    <section class="app-section" id="sec-marketplace">
+      <div class="market-header">
+        <div>
+          <h2 class="lang-es">Tablón de Anuncios y Clasificados</h2>
+          <h2 class="lang-en">Community Classifieds Board</h2>
+          <p class="lang-es" style="margin:0;">Vivienda, ofertas de servicios y redes profesionales de españoles en
+            Miami.</p>
+          <p class="lang-en" style="margin:0;">Rentals, freelance offers, and professional networks in Miami.</p>
+        </div>
+        <button class="btn btn-primary" id="openPostDialogBtn">
+          <span class="lang-es">+ Publicar Anuncio</span>
+          <span class="lang-en">+ Post a Listing</span>
+        </button>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-tabs" id="marketFilters">
+        <button class="filter-tab active" data-market-cat="all">
+          <span class="lang-es">Todos</span>
+          <span class="lang-en">All</span>
+        </button>
+        <button class="filter-tab" data-market-cat="housing">
+          <span class="lang-es">Vivienda</span>
+          <span class="lang-en">Housing</span>
+        </button>
+
+        <button class="filter-tab" data-market-cat="services">
+          <span class="lang-es">Servicios y Clases</span>
+          <span class="lang-en">Services & Classes</span>
+        </button>
+        <button class="filter-tab" data-market-cat="social">
+          <span class="lang-es">Social y Quedadas</span>
+          <span class="lang-en">Social & Meetups</span>
+        </button>
+      </div>
+
+      <!-- Marketplace grid of listings -->
+      <div class="market-grid" id="marketplaceGrid">
+        <!-- Dynamic listings injected from JS -->
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 6: CONTACT US ==================== -->
+    <section class="app-section" id="sec-contact">
+      <h2 class="lang-es">Contacto</h2>
+      <h2 class="lang-en">Contact Us</h2>
+      <p class="lang-es">¿Tienes dudas, sugerencias o quieres colaborar con el portal de la comunidad española? Escríbenos.</p>
+      <p class="lang-en">Do you have questions, suggestions, or want to collaborate with the Spanish community portal? Write to us.</p>
+
+      <div class="map-layout" style="margin-top: 2rem;">
+        
+        <!-- Column 1: Info Card -->
+        <div class="glass-card card-accent-border" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div>
+            <h3 class="lang-es" style="color: var(--color-primary); margin-bottom: 0.5rem;">Comunidad Española en Miami 🌴</h3>
+            <h3 class="lang-en" style="color: var(--color-primary); margin-bottom: 0.5rem;">Spanish Community in Miami 🌴</h3>
+            <p class="lang-es" style="margin: 0; font-size: 0.9rem; line-height: 1.5;">Tu portal de información y punto de encuentro digital en el sur de la Florida. Conectamos residentes, profesionales y recién llegados.</p>
+            <p class="lang-en" style="margin: 0; font-size: 0.9rem; line-height: 1.5;">Your information portal and digital meeting point in South Florida. Connecting residents, professionals, and newcomers.</p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
+            <div class="detail-meta-row" style="margin: 0;">
+              <svg viewBox="0 0 24 24" style="stroke: var(--color-primary); fill: none; stroke-width: 2; width: 18px; height: 18px;">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span><strong>Email:</strong> <a href="mailto:hola@espanolesenmiami.com" style="color: var(--color-primary); font-weight: 600;">hola@espanolesenmiami.com</a></span>
+            </div>
+
+            <div class="detail-meta-row" style="margin: 0;">
+              <svg viewBox="0 0 24 24" style="stroke: var(--color-primary); fill: none; stroke-width: 2; width: 18px; height: 18px;">
+                <circle cx="12" cy="10" r="3"></circle>
+                <path d="M12 21.7C10.3 19.8 5 13 5 10a7 7 0 1 1 14 0c0 3-5.3 9.8-7 11.7z"></path>
+              </svg>
+              <span><strong>📍 <span class="lang-es">Ubicación</span><span class="lang-en">Location</span>:</strong> Coral Gables, Miami, FL</span>
+            </div>
+
+            <div class="detail-meta-row" style="margin: 0;">
+              <svg viewBox="0 0 24 24" style="stroke: var(--color-primary); fill: none; stroke-width: 2; width: 18px; height: 18px;">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+              <span><strong>X / Twitter:</strong> <a href="https://x.com" target="_blank" rel="noopener" style="color: var(--color-primary); font-weight: 600;">@EspanolesMiami</a></span>
+            </div>
+          </div>
+
+          <div style="background: var(--color-accent-light); padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid var(--color-accent); margin-top: auto;">
+            <p class="lang-es" style="margin: 0; font-size: 0.82rem; color: var(--color-text-main); font-weight: 500; line-height: 1.4;">
+              <strong>¿Tienes un negocio?</strong> Regístralo en nuestro directorio interactivo o sube un anuncio clasificado directamente desde la sección "Anuncios".
+            </p>
+            <p class="lang-en" style="margin: 0; font-size: 0.82rem; color: var(--color-text-main); font-weight: 500; line-height: 1.4;">
+              <strong>Own a business?</strong> Register it in our interactive directory or post a classified listing directly from the "Classifieds" section.
+            </p>
+          </div>
+        </div>
+
+        <!-- Column 2: Contact Form Card -->
+        <div class="glass-card">
+          <h3 class="lang-es" style="margin-bottom: 1rem;">Envíanos un Mensaje ✉️</h3>
+          <h3 class="lang-en" style="margin-bottom: 1rem;">Send Us a Message ✉️</h3>
+          
+          <form id="contactForm" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="form-group">
+              <label for="contactName">
+                <span class="lang-es">Nombre Completo *</span>
+                <span class="lang-en">Full Name *</span>
+              </label>
+              <input type="text" class="form-control" id="contactName" required
+                placeholder="Ej. Ana Martínez"
+                data-placeholder-es="Ej. Ana Martínez"
+                data-placeholder-en="E.g. Ana Martinez">
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail">
+                <span class="lang-es">Correo Electrónico *</span>
+                <span class="lang-en">Email Address *</span>
+              </label>
+              <input type="email" class="form-control" id="contactEmail" required
+                placeholder="Ej. ana.martinez@email.com"
+                data-placeholder-es="Ej. ana.martinez@email.com"
+                data-placeholder-en="E.g. ana.martinez@email.com">
+            </div>
+
+            <div class="form-group">
+              <label for="contactSubject">
+                <span class="lang-es">Asunto *</span>
+                <span class="lang-en">Subject *</span>
+              </label>
+              <input type="text" class="form-control" id="contactSubject" required
+                placeholder="Ej. Sugerencia de restaurante o Duda de visado"
+                data-placeholder-es="Ej. Sugerencia de restaurante o Duda de visado"
+                data-placeholder-en="E.g. Restaurant suggestion or Visa question">
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">
+                <span class="lang-es">Mensaje *</span>
+                <span class="lang-en">Message *</span>
+              </label>
+              <textarea class="form-control" id="contactMessage" rows="4" required
+                placeholder="Escribe tu consulta aquí..."
+                data-placeholder-es="Escribe tu consulta aquí..."
+                data-placeholder-en="Write your query here..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+              <span class="lang-es">Enviar Mensaje</span>
+              <span class="lang-en">Send Message</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="app-footer" style="background: var(--color-surface); border-top: 1px solid var(--color-border); padding: 2.5rem 1.5rem; text-align: center; margin-top: 4rem; backdrop-filter: blur(var(--glass-blur));">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem; align-items: center;">
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; font-size: 0.9rem; font-weight: 600;">
+          <a href="#" onclick="switchSection('home'); return false;" style="color: var(--color-text-muted);">
+            <span class="lang-es">Inicio</span>
+            <span class="lang-en">Home</span>
+          </a>
+          <a href="#" onclick="switchSection('directory'); return false;" style="color: var(--color-text-muted);">
+            <span class="lang-es">Mapa y Sitios</span>
+            <span class="lang-en">Map & Spots</span>
+          </a>
+          <a href="#" onclick="switchSection('events'); return false;" style="color: var(--color-text-muted);">
+            <span class="lang-es">Eventos</span>
+            <span class="lang-en">Events</span>
+          </a>
+          <a href="#" onclick="switchSection('resources'); return false;" style="color: var(--color-text-muted);">
+            <span class="lang-es">Servicios Consulares</span>
+            <span class="lang-en">Consular Services</span>
+          </a>
+          <a href="#" onclick="switchSection('marketplace'); return false;" style="color: var(--color-text-muted);">
+            <span class="lang-es">Anuncios</span>
+            <span class="lang-en">Classifieds</span>
+          </a>
+          <a href="#" onclick="switchSection('contact'); return false;" style="color: var(--color-primary); border-bottom: 2px solid var(--color-primary); padding-bottom: 2px;">
+            <span class="lang-es">Contacto</span>
+            <span class="lang-en">Contact Us</span>
+          </a>
+        </div>
+        <p style="margin: 0; font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.5;">
+          &copy; 2026 Españoles en Miami. 
+          <span class="lang-es">Todos los derechos reservados. Desarrollado con ❤️ para la comunidad española.</span>
+          <span class="lang-en">All rights reserved. Developed with ❤️ for the Spanish community.</span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- --- MOBILE BOTTOM BAR --- -->
+    <nav class="mobile-nav">
+      <button class="mobile-nav-item active" data-target="home">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="lang-es">Inicio</span>
+        <span class="lang-en">Home</span>
+      </button>
+      <button class="mobile-nav-item" data-target="directory">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="10" r="3"></circle>
+          <path d="M12 21.7C10.3 19.8 5 13 5 10a7 7 0 1 1 14 0c0 3-5.3 9.8-7 11.7z"></path>
+        </svg>
+        <span class="lang-es">Mapa</span>
+        <span class="lang-en">Map</span>
+      </button>
+      <button class="mobile-nav-item" data-target="events">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span class="lang-es">Eventos</span>
+        <span class="lang-en">Events</span>
+      </button>
+      <button class="mobile-nav-item" data-target="resources">
+        <svg viewBox="0 0 24 24">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+        <span class="lang-es">Servicios</span>
+        <span class="lang-en">Services</span>
+      </button>
+      <button class="mobile-nav-item" data-target="marketplace">
+        <svg viewBox="0 0 24 24">
+          <line x1="4" y1="21" x2="4" y2="14"></line>
+          <line x1="4" y1="10" x2="4" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12" y2="3"></line>
+          <line x1="20" y1="21" x2="20" y2="16"></line>
+          <line x1="20" y1="12" x2="20" y2="3"></line>
+          <line x1="1" y1="14" x2="7" y2="14"></line>
+          <line x1="9" y1="8" x2="15" y2="8"></line>
+          <line x1="17" y1="16" x2="23" y2="16"></line>
+        </svg>
+        <span class="lang-es">Anuncios</span>
+        <span class="lang-en">Classifieds</span>
+      </button>
+    </nav>
+
+    <!-- ==================== POST CLASSIFIED DIALOG ==================== -->
+    <div class="dialog-overlay" id="postDialogOverlay">
+      <div class="dialog-box">
+        <div class="dialog-header">
+          <h3 class="lang-es">Publicar Anuncio Gratis</h3>
+          <h3 class="lang-en">Post a Free Listing</h3>
+          <button class="dialog-close" id="closePostDialogBtn" aria-label="Cerrar / Close">&times;</button>
+        </div>
+
+        <form id="classifiedForm">
+          <div class="form-group">
+            <label for="postTitle">
+              <span class="lang-es">Título del Anuncio *</span>
+              <span class="lang-en">Listing Title *</span>
+            </label>
+            <input type="text" class="form-control" id="postTitle" required
+              placeholder="Ej. Alquiler de habitación en Brickell"
+              data-placeholder-es="Ej. Alquiler de habitación en Brickell"
+              data-placeholder-en="E.g. Room for rent in Brickell">
+          </div>
+
+          <div class="form-group">
+            <label for="postCategory">
+              <span class="lang-es">Categoría *</span>
+              <span class="lang-en">Category *</span>
+            </label>
+            <select class="form-control" id="postCategory" required>
+              <option value="housing" class="lang-es">Vivienda (Habitaciones / Alquiler)</option>
+              <option value="housing" class="lang-en">Housing (Rooms / Rentals)</option>
+
+              <option value="services" class="lang-es">Servicios Profesionales o Clases</option>
+              <option value="services" class="lang-en">Professional Services / Classes</option>
+              <option value="social" class="lang-es">Quedadas y Comunidad</option>
+              <option value="social" class="lang-en">Social Meetups & Community</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="postPrice">
+              <span class="lang-es">Precio o Compensación (Opcional)</span>
+              <span class="lang-en">Price or Compensation (Optional)</span>
+            </label>
+            <input type="text" class="form-control" id="postPrice" placeholder="Ej. $1,200/mes o Gratuito"
+              data-placeholder-es="Ej. $1,200/mes o Gratuito" data-placeholder-en="E.g. $1,200/month or Free">
+          </div>
+
+          <div class="form-group">
+            <label for="postContact">
+              <span class="lang-es">Contacto (Email, Teléfono o Telegram) *</span>
+              <span class="lang-en">Contact Info (Email, Phone, or Telegram) *</span>
+            </label>
+            <input type="text" class="form-control" id="postContact" required placeholder="Ej. carlos@email.com"
+              data-placeholder-es="Ej. carlos@email.com" data-placeholder-en="E.g. carlos@email.com">
+          </div>
+
+          <div class="form-group">
+            <label for="postDescription">
+              <span class="lang-es">Descripción detallada *</span>
+              <span class="lang-en">Detailed Description *</span>
+            </label>
+            <textarea class="form-control" id="postDescription" rows="4" required
+              placeholder="Describe lo que buscas u ofreces con detalle..."
+              data-placeholder-es="Describe lo que buscas u ofreces con detalle..."
+              data-placeholder-en="Describe what you are looking for or offering..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; margin-top:1rem;">
+            <span class="lang-es">Publicar Ahora</span>
+            <span class="lang-en">Publish Now</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ==================== FLOATING CHATBOT ASSISTANT "EL GUÍA" ==================== -->
+    <button class="chat-launcher" id="chatLauncherBtn" aria-label="Abrir Asistente / Open Chatbot">
+      <svg viewBox="0 0 24 24">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </button>
+
+    <div class="chat-panel" id="chatPanel">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">🇪🇸</div>
+          <div>
+            <h4 class="lang-es">El Guía de Miami</h4>
+            <h4 class="lang-en">The Miami Guide</h4>
+            <p class="lang-es">Asistente Virtual • Online</p>
+            <p class="lang-en">Virtual Assistant • Online</p>
+          </div>
+        </div>
+        <button id="closeChatBtn"
+          style="background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">&times;</button>
+      </div>
+
+      <!-- Messages Feed -->
+      <div class="chat-body" id="chatMsgBody">
+        <div class="chat-msg chat-msg-bot">
+          <span class="lang-es">¡Hola! Soy <strong>El Guía</strong>. Estoy aquí para ayudarte a resolver dudas sobre
+            mudarte a Miami, trámites de visado, renovación de pasaporte español, o recomendarte los mejores sitios de
+            tapas de la ciudad. ¿Qué deseas consultar hoy?</span>
+          <span class="lang-en">Hi! I am <strong>The Guide</strong>. I'm here to help answer questions about moving to
+            Miami, visas, passport renewals, or recommend the absolute best authentic tapas spots. What would you like
+            to ask today?</span>
+        </div>
+      </div>
+
+      <!-- Smart suggestion chips -->
+      <div class="chat-suggestions" id="chatSuggestionsBox">
+        <button class="chat-suggest-btn" data-query="tapas">🍷 Tapas & Jamón</button>
+        <button class="chat-suggest-btn" data-query="consulado">🏢 Consulado</button>
+        <button class="chat-suggest-btn" data-query="nie">📝 Obtener NIE</button>
+        <button class="chat-suggest-btn" data-query="colegios">🎓 Colegios ISA</button>
+      </div>
+
+      <!-- Input bar -->
+      <div class="chat-footer">
+        <input type="text" class="chat-input" id="chatInputField" placeholder="Pregúntame algo..."
+          data-placeholder-es="Pregúntame algo..." data-placeholder-en="Ask me anything...">
+        <button class="chat-send-btn" id="chatSendBtn" aria-label="Enviar / Send">
+          <svg viewBox="0 0 24 24">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Main Application Logic Script -->
+  <script src="app.js"></script>
+</body>
+
+</html>
