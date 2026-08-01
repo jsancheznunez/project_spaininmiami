@@ -29,8 +29,8 @@ const HOTSPOTS = {
     rating: 4.8,
     ratingCount: 184,
     coords: [130, 110],
-    nameEs: 'Centro Cultural Español (CCEMiami)',
-    nameEn: 'Spanish Cultural Center (CCEMiami)',
+    nameEs: 'CCEMiami (Centro Cultural Español de Cooperación Iberoamericana)',
+    nameEn: 'CCEMiami (Spanish Cultural Center of Ibero-American Cooperation)',
     descEs: 'Espacio cultural de referencia que promueve la cooperación y cultura de creadores españoles y latinoamericanos mediante exposiciones, teatro y música.',
     descEn: 'Premier cultural hub promoting Spanish and Latin American artists through exhibitions, micro-theater, live concerts, and educational events.',
     address: '1490 Biscayne Blvd, Miami, FL 33132',
@@ -46,8 +46,8 @@ const HOTSPOTS = {
     rating: 4.7,
     ratingCount: 96,
     coords: [145, 95],
-    nameEs: 'Cámara de Comercio de España en EE.UU.',
-    nameEn: 'Spain-US Chamber of Commerce',
+    nameEs: 'Spain-U.S. Chamber of Commerce (Cámara de Comercio de España en EE.UU.)',
+    nameEn: 'Spain-U.S. Chamber of Commerce',
     descEs: 'Asociación comercial que impulsa las relaciones económicas de empresas españolas en el mercado estadounidense, ofreciendo consultoría y networking.',
     descEn: 'Leading trade chamber assisting Spanish enterprises expanding into the US market. Organizes corporate roundtables, trade programs, and networking events.',
     address: '1221 Brickell Ave #1950, Miami, FL 33131',
@@ -141,6 +141,23 @@ const HOTSPOTS = {
     hoursEn: 'Monday to Friday: 7:30 AM - 3:30 PM',
     website: 'https://ispa.dadeschools.net',
     img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=400&auto=format&fit=crop'
+  },
+  mhcac: {
+    id: 'mhcac',
+    category: 'institution',
+    rating: 4.8,
+    ratingCount: 215,
+    coords: [135, 118],
+    nameEs: 'Miami Hispanic Cultural Arts Center',
+    nameEn: 'Miami Hispanic Cultural Arts Center',
+    descEs: 'Sede del Ballet Clásico de Miami y la Creation Art Center. Ubicado en la histórica J.W. Warner House, es un núcleo vibrante que promueve artes plásticas, literatura, música y danza hispana.',
+    descEn: 'Home to the Miami Hispanic Ballet and Creation Art Center. Housed in the historic J.W. Warner House, it is a vibrant hub promoting Hispanic visual arts, literature, music, and dance.',
+    address: '111 SW 5th Ave, Miami, FL 33130',
+    phone: '(305) 549-7711',
+    hoursEs: 'Lunes a Sábado: 9:00 AM - 9:00 PM',
+    hoursEn: 'Monday to Saturday: 9:00 AM - 9:00 PM',
+    website: 'http://www.miamihispanicculturalartscenter.org',
+    img: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=400&auto=format&fit=crop'
   }
 };
 
@@ -208,45 +225,6 @@ const EVENTS = [
     time: '7:30 PM',
     priceEs: '$12 General / $8 Socios',
     priceEn: '$12 General / $8 Members'
-  }
-];
-
-const BASELINE_CLASSIFIEDS = [
-  {
-    id: 'listing-1',
-    category: 'housing',
-    price: '$1,450 / mes',
-    dateEs: 'Hace 2 días',
-    dateEn: '2 days ago',
-    titleEs: 'Habitación con baño privado en Brickell',
-    titleEn: 'Room with private bath in Brickell',
-    contact: '+1 (305) 555-0192',
-    descEs: 'Alquilo habitación amplia y luminosa en apartamento compartido. Acceso a piscina, gimnasio y a pasos del Metromover. Preferiblemente estudiante o joven profesional.',
-    descEn: 'Renting a spacious and bright room in a shared apartment. Access to pool, gym, and steps from Metromover. Preferably student or young professional.'
-  },
-  {
-    id: 'listing-2',
-    category: 'services',
-    price: '$35 / hora',
-    dateEs: 'Hace 4 días',
-    dateEn: '4 days ago',
-    titleEs: 'Clases particulares de Español y refuerzo escolar',
-    titleEn: 'Private Spanish Lessons & Academic Tutoring',
-    contact: 'carlos.tutor@email.com',
-    descEs: 'Profesor nativo de Madrid ofrece clases de español para todos los niveles, preparación de exámenes y conversación. Horarios flexibles, presencial u online.',
-    descEn: 'Native teacher from Madrid offers Spanish lessons for all levels, exam preparation, and conversation practice. Flexible hours, in-person or online.'
-  },
-  {
-    id: 'listing-3',
-    category: 'social',
-    price: 'Gratuito / Free',
-    dateEs: 'Hace 1 semana',
-    dateEn: '1 week ago',
-    titleEs: 'Grupo de fútbol 7 - Quedada semanal en Key Biscayne',
-    titleEn: '7-a-side Soccer Group - Weekly Match in Key Biscayne',
-    contact: 'javier.futbol@email.com',
-    descEs: 'Buscamos jugadores de todos los niveles para jugar partidos amistosos de fútbol los miércoles por la tarde. ¡Buen ambiente y tercer tiempo asegurado!',
-    descEn: 'Looking for players of all skill levels for friendly soccer matches on Wednesday evenings. Great atmosphere and post-game social guaranteed!'
   }
 ];
 
@@ -482,10 +460,8 @@ const AppState = {
   currentSection: 'home',
   activeMapPinId: null,
   activeResourceTab: 'consular',
-  classifieds: JSON.parse(localStorage.getItem('esMiami_listings')) || BASELINE_CLASSIFIEDS,
   directoryFilter: 'all',
   eventFilter: 'all',
-  marketFilter: 'all',
   euFilter: 'all',
   eventsView: 'list' // 'list' or 'grid'
 };
@@ -503,9 +479,9 @@ document.addEventListener('DOMContentLoaded', () => {
   setupEventsSection();
   setupResourcesSection();
   setupEuConsulatesSection();
-  setupMarketplaceSection();
   setupChatbot();
   setupContactSection();
+  initRelocationChecklist();
 });
 
 // ==================== THEME CONTROLLER ====================
@@ -567,7 +543,6 @@ function updateLanguageDom() {
   renderDirectoryList();
   renderActiveDetail();
   renderEvents();
-  renderClassifieds();
   renderEuConsulates();
   
   // Update HTML lang tag
@@ -578,11 +553,32 @@ function updateLanguageDom() {
 
 function setupNavigation() {
   const navItems = document.querySelectorAll('.nav-menu-item, .mobile-nav-item');
+  const menuToggle = document.getElementById('menuToggleBtn');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu if clicked outside
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+      }
+    });
+  }
   
   navItems.forEach(item => {
     item.addEventListener('click', (e) => {
       const target = item.getAttribute('data-target');
       switchSection(target);
+      
+      // Close top nav menu on mobile when item is selected
+      if (navMenu && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+      }
     });
   });
 }
@@ -628,7 +624,6 @@ function setupSearch() {
     // Perform unified filtering across all active listings in current views
     filterDirectoryBySearch(query);
     filterEventsBySearch(query);
-    filterMarketplaceBySearch(query);
     filterEuConsulatesBySearch(query);
   });
 }
@@ -636,7 +631,6 @@ function setupSearch() {
 function resetFilters() {
   renderDirectoryList();
   renderEvents();
-  renderClassifieds();
   renderEuConsulates();
 }
 
@@ -1130,176 +1124,29 @@ function openResourceTab(tabId) {
   }
 }
 
-// ==================== COMMUNITY CLASSIFIEDS / MARKETPLACE ====================
-
-function setupMarketplaceSection() {
-  // Post Dialog open / close
-  const overlay = document.getElementById('postDialogOverlay');
-  const openBtn = document.getElementById('openPostDialogBtn');
-  const closeBtn = document.getElementById('closePostDialogBtn');
+function filterDirectoryCategory(category) {
+  AppState.directoryFilter = category;
   
-  openBtn.addEventListener('click', () => {
-    overlay.classList.add('active');
-  });
-  
-  closeBtn.addEventListener('click', () => {
-    overlay.classList.remove('active');
-  });
-  
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      overlay.classList.remove('active');
-    }
-  });
-  
-  // Filter tabs
-  const filters = document.getElementById('marketFilters').querySelectorAll('.filter-tab');
-  filters.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filters.forEach(f => f.classList.remove('active'));
-      btn.classList.add('active');
-      AppState.marketFilter = btn.getAttribute('data-market-cat');
-      renderClassifieds();
+  // Update active state on directory filter buttons
+  const filters = document.getElementById('directoryFilters');
+  if (filters) {
+    const tabs = filters.querySelectorAll('.filter-tab');
+    tabs.forEach(btn => {
+      if (btn.getAttribute('data-category') === category) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
     });
-  });
-  
-  // Form submission
-  const form = document.getElementById('classifiedForm');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const titleVal = document.getElementById('postTitle').value;
-    const catVal = document.getElementById('postCategory').value;
-    const priceVal = document.getElementById('postPrice').value || (AppState.lang === 'es' ? 'Consultar' : 'Contact');
-    const contactVal = document.getElementById('postContact').value;
-    const descVal = document.getElementById('postDescription').value;
-    
-    const newPost = {
-      id: `custom-${Date.now()}`,
-      category: catVal,
-      price: priceVal,
-      dateEs: 'Hoy',
-      dateEn: 'Today',
-      titleEs: titleVal,
-      titleEn: titleVal, // Custom submissions remain same in both
-      contact: contactVal,
-      descEs: descVal,
-      descEn: descVal
-    };
-    
-    // Add to state and save
-    AppState.classifieds.unshift(newPost);
-    localStorage.setItem('esMiami_listings', JSON.stringify(AppState.classifieds));
-    
-    // reset form, close dialog and re-render
-    form.reset();
-    overlay.classList.remove('active');
-    renderClassifieds();
-    
-    // Toast notification
-    const successMsg = AppState.lang === 'es' ? '¡Anuncio publicado correctamente!' : 'Classified post published successfully!';
-    alert(successMsg);
-  });
-  
-  renderClassifieds();
-}
-
-function renderClassifieds() {
-  const grid = document.getElementById('marketplaceGrid');
-  grid.innerHTML = '';
-  
-  AppState.classifieds.forEach(post => {
-    if (AppState.marketFilter !== 'all' && post.category !== AppState.marketFilter) return;
-    
-    const title = AppState.lang === 'es' ? post.titleEs : post.titleEn;
-    const desc = AppState.lang === 'es' ? post.descEs : post.descEn;
-    const date = AppState.lang === 'es' ? post.dateEs : post.dateEn;
-    
-    const card = document.createElement('div');
-    card.className = 'glass-card market-card';
-    
-    const categoryTag = getMarketCategoryLabel(post.category);
-    
-    // Nice illustrative placeholder image based on category
-    let imgUrl = 'https://images.unsplash.com/photo-1513829096960-ef04829d15d1?q=80&w=400'; // housing default
-    if (post.category === 'services') imgUrl = 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=400';
-    if (post.category === 'social') imgUrl = 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=400';
-    
-    card.innerHTML = `
-      <img src="${imgUrl}" alt="${title}" class="market-card-img">
-      <div class="market-card-body">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem">
-          <span class="directory-badge" style="background:var(--color-accent-light); color:var(--color-text-main); font-weight:700">${categoryTag}</span>
-          <span style="font-size:0.7rem; color:var(--color-text-muted)">${date}</span>
-        </div>
-        <h4 style="margin-bottom:0.5rem; font-size:1.1rem; line-height:1.3">${title}</h4>
-        <div class="market-price">${post.price}</div>
-        <p style="font-size:0.85rem; margin-bottom:1rem">${desc}</p>
-        
-        <div class="market-meta">
-          <span>📞 <strong>${post.contact}</strong></span>
-        </div>
-      </div>
-    `;
-    
-    grid.appendChild(card);
-  });
-}
-
-function getMarketCategoryLabel(cat) {
-  if (AppState.lang === 'es') {
-    if (cat === 'housing') return 'Vivienda';
-    if (cat === 'services') return 'Servicios';
-    if (cat === 'social') return 'Social / Quedadas';
-  } else {
-    if (cat === 'housing') return 'Housing';
-    if (cat === 'services') return 'Services';
-    if (cat === 'social') return 'Social / Meetups';
   }
-  return cat;
-}
-
-function filterMarketplaceBySearch(query) {
-  const grid = document.getElementById('marketplaceGrid');
-  grid.innerHTML = '';
   
-  AppState.classifieds.forEach(post => {
-    const title = (AppState.lang === 'es' ? post.titleEs : post.titleEn).toLowerCase();
-    const desc = (AppState.lang === 'es' ? post.descEs : post.descEn).toLowerCase();
-    
-    if (title.includes(query) || desc.includes(query)) {
-      const titleTxt = AppState.lang === 'es' ? post.titleEs : post.titleEn;
-      const descTxt = AppState.lang === 'es' ? post.descEs : post.descEn;
-      const dateTxt = AppState.lang === 'es' ? post.dateEs : post.dateEn;
-      
-      const card = document.createElement('div');
-      card.className = 'glass-card market-card';
-      
-      let imgUrl = 'https://images.unsplash.com/photo-1513829096960-ef04829d15d1?q=80&w=400';
-      if (post.category === 'services') imgUrl = 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=400';
-      if (post.category === 'social') imgUrl = 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=400';
-      
-      card.innerHTML = `
-        <img src="${imgUrl}" alt="${titleTxt}" class="market-card-img">
-        <div class="market-card-body">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem">
-            <span class="directory-badge" style="background:var(--color-accent-light); color:var(--color-text-main); font-weight:700">${getMarketCategoryLabel(post.category)}</span>
-            <span style="font-size:0.7rem; color:var(--color-text-muted)">${dateTxt}</span>
-          </div>
-          <h4 style="margin-bottom:0.5rem; font-size:1.1rem; line-height:1.3">${titleTxt}</h4>
-          <div class="market-price">${post.price}</div>
-          <p style="font-size:0.85rem; margin-bottom:1rem">${descTxt}</p>
-          <div class="market-meta">
-            <span>📞 <strong>${post.contact}</strong></span>
-          </div>
-        </div>
-      `;
-      grid.appendChild(card);
-    }
-  });
+  renderDirectoryList();
+  updateMapPinVisibility();
+  switchSection('directory');
 }
 
-// ==================== FLOATING ASSISTANT "EL GUÍA" ====================
+
+// ==================== FLOATING ASSISTANT "EL ASISTENTE" ====================
 
 function setupChatbot() {
   const launcher = document.getElementById('chatLauncherBtn');
@@ -1393,6 +1240,37 @@ function getChatbotResponse(rawQuery) {
       • <strong>Trámite recomendado:</strong> Hazte el Alta Consular nada más llegar para facilitar cualquier renovación futura. En la pestaña <strong>"Servicios Consulares"</strong> tienes los pasos.`;
     }
     
+    if (q.includes('vivienda') || q.includes('alquilar') || q.includes('alquiler') || q.includes('casa') || q.includes('apartamento') || q.includes('barrio') || q.includes('zona')) {
+      return `🏠 <strong>Dónde encontrar vivienda en Miami:</strong><br><br>
+      • <strong>Zonas Recomendadas:</strong><br>
+      &nbsp;&nbsp;- <em>Brickell / Downtown:</em> Ideal para profesionales, muy urbano, transitable a pie y con Metromover.<br>
+      &nbsp;&nbsp;- <em>Coral Gables / Coconut Grove:</em> Zonas residenciales verdes, familiares y tranquilas, cerca de colegios bilingües.<br>
+      &nbsp;&nbsp;- <em>Doral:</em> Muy popular entre familias hispanas, con excelentes comunidades cerradas y centros comerciales.<br>
+      &nbsp;&nbsp;- <em>Key Biscayne:</em> Entorno exclusivo rodeado de playas, ideal para amantes del deporte y la naturaleza.<br><br>
+      • <strong>Portales Populares de Búsqueda:</strong> Zillow.com, Trulia.com, Realtor.com y Apartments.com.<br>
+      • <strong>Recomendación:</strong> Cuenta con la ayuda de un <em>Realtor</em> (agente inmobiliario). En Florida sus servicios son <strong>gratuitos para el inquilino o comprador</strong>, ya que sus honorarios los paga el propietario/vendedor.`;
+    }
+    
+    if (q.includes('desplazarse') || q.includes('transporte') || q.includes('coche') || q.includes('conducir') || q.includes('sunpass') || q.includes('metro')) {
+      return `🚗 <strong>Cómo desplazarse por Miami:</strong><br><br>
+      • <strong>Peajes (SunPass):</strong> Imprescindible para circular por las autopistas de Florida sin recargos. Compra un sticker SunPass en CVS o Publix y regístralo online.<br>
+      • <strong>Transporte Público:</strong><br>
+      &nbsp;&nbsp;- <em>Metromover:</em> Sistema de monorraíl elevado <strong>100% gratuito</strong> que recorre Downtown y Brickell.<br>
+      &nbsp;&nbsp;- <em>Metrorail & Autobús:</em> Cruza Miami de norte a sur y llega al aeropuerto. Necesitarás una tarjeta EASY Card.<br>
+      • <strong>Carné de Conducir:</strong> Con el carné español puedes conducir provisionalmente, pero debes obtener la licencia del DMV de Florida si vas a residir formalmente.`;
+    }
+    
+    if (q.includes('servicio') || q.includes('utilidad') || q.includes('agua') || q.includes('electricidad') || q.includes('fpl') || q.includes('internet') || q.includes('teléfono')) {
+      return `⚡ <strong>Servicios Locales y Suministros Básicos:</strong><br><br>
+      • <strong>Electricidad:</strong> Florida Power & Light (<strong>FPL</strong>) es el único proveedor. Puedes darte de alta online aportando tu pasaporte/SSN.<br>
+      • <strong>Agua y Basura:</strong> Gestionado por el condado (<strong>Miami-Dade Water and Sewer Dept</strong>).<br>
+      • <strong>Internet y TV:</strong> Los principales proveedores son <strong>Comcast/Xfinity</strong> y <strong>AT&T</strong> (fibra óptica en Brickell y Coral Gables).<br>
+      • <strong>Telefonía Móvil:</strong> T-Mobile, AT&T y Verizon. Se recomienda contratar inicialmente planes de prepago (prepaid) si no posees historial crediticio local.<br><br>
+      🚨 <strong>Emergencia:</strong> Llame al 911 para emergencias médicas o delitos en curso. (Dial 911 for immediate life-threatening emergencies or crimes in progress.)<br>
+      ℹ️ <strong>Servicios Municipales:</strong> Marque 311 para servicios del gobierno local y asistencia no urgente. (Dial 311 for local government services and non-sensitive assistance.)<br>
+      📞 <strong>Policía (No Urgente):</strong> Llame al 305-SHERIFF (305-743-7433) o al 305-4-POLICE (305-476-5423) para consultas generales, quejas por ruido o accidentes menores sin heridos. (Call 305-SHERIFF [305-743-7433] or 305-4-POLICE [305-476-5423] for general inquiries, noise complaints, or minor traffic accidents without injuries.)`;
+    }
+    
     if (q.includes('nie') || q.includes('ex15') || q.includes('número')) {
       return `📝 <strong>Cómo solicitar el NIE en Miami:</strong><br><br>
       1. Rellena el <strong>Formulario EX-15</strong> en mayúsculas.<br>
@@ -1411,7 +1289,7 @@ function getChatbotResponse(rawQuery) {
     if (q.includes('negocio') || q.includes('invertir') || q.includes('empresa') || q.includes('llc') || q.includes('sunbiz')) {
       return `💼 <strong>Negocios y Emprendimiento en Florida:</strong><br><br>
       • <strong>Sunbiz.org:</strong> Es el portal estatal oficial de Florida donde puedes constituir una LLC o Corp online en menos de 48 horas.<br>
-      • <strong>Cámara de Comercio:</strong> La <strong>Spain-US Chamber of Commerce</strong> en Brickell ofrece excelentes sesiones de networking empresarial y te guía en las regulaciones de Florida.<br>
+      • <strong>Cámara de Comercio:</strong> La <strong>Spain-U.S. Chamber of Commerce</strong> en Brickell ofrece excelentes sesiones de networking empresarial y te guía en las regulaciones de Florida.<br>
       • <strong>Visados:</strong> Las visas E-2 de inversor y L-1 de transferencia corporativa son los caminos legales más comunes para empresarios españoles.`;
     }
     
@@ -1441,6 +1319,37 @@ function getChatbotResponse(rawQuery) {
       • <strong>Pro-Tip:</strong> Register in the Consular Census (Alta Consular) upon arrival. It is required for passport renewals.`;
     }
     
+    if (q.includes('vivienda') || q.includes('housing') || q.includes('rent') || q.includes('rental') || q.includes('apartment') || q.includes('neighborhood') || q.includes('area')) {
+      return `🏠 <strong>Where to Find Housing in Miami:</strong><br><br>
+      • <strong>Recommended Areas:</strong><br>
+      &nbsp;&nbsp;- <em>Brickell / Downtown:</em> Urban hub, very walkable, popular with young professionals, transit-friendly via Metromover.<br>
+      &nbsp;&nbsp;- <em>Coral Gables / Coconut Grove:</em> Lush, historic residential neighborhoods close to great public schools.<br>
+      &nbsp;&nbsp;- <em>Doral:</em> Excellent gated communities, highly popular among family-oriented residents.<br>
+      &nbsp;&nbsp;- <em>Key Biscayne:</em> Exclusive island vibe, perfect for outdoor enthusiasts and families.<br><br>
+      • <strong>Top Search Portals:</strong> Zillow.com, Trulia.com, Realtor.com, and Apartments.com.<br>
+      • <strong>Pro-Tip:</strong> Hire a licensed <em>Realtor</em>. In Florida, realtor services are <strong>completely free for renters or buyers</strong>, as the commissions are paid entirely by the landlord or seller.`;
+    }
+    
+    if (q.includes('desplazarse') || q.includes('transport') || q.includes('car') || q.includes('driving') || q.includes('sunpass') || q.includes('mover') || q.includes('rail')) {
+      return `🚗 <strong>How to Get Around Miami:</strong><br><br>
+      • <strong>Tolls (SunPass):</strong> Essential for Florida highways. Buy a SunPass transponder/sticker at CVS or Publix and link it to your license plate online.<br>
+      • <strong>Public Transit:</strong><br>
+      &nbsp;&nbsp;- <em>Metromover:</em> <strong>100% free</strong> automated loop transit covering Downtown and Brickell areas.<br>
+      &nbsp;&nbsp;- <em>Metrorail & Bus:</em> North-South transit linking Kendall, Brickell, Downtown, and Miami Airport. Uses the EASY Card system.<br>
+      • <strong>Driver's License:</strong> International permits are temporary. Schedule a test at the Florida DMV to obtain your local license.`;
+    }
+    
+    if (q.includes('service') || q.includes('utility') || q.includes('water') || q.includes('electricity') || q.includes('fpl') || q.includes('internet') || q.includes('phone')) {
+      return `⚡ <strong>Local Services & Utilities Setup:</strong><br><br>
+      • <strong>Electricity:</strong> Provided exclusively by Florida Power & Light (<strong>FPL</strong>). Set up service online using your passport or SSN.<br>
+      • <strong>Water & Sewer:</strong> Managed by the municipal county (<strong>Miami-Dade Water & Sewer Dept</strong>).<br>
+      • <strong>Internet & Fiber:</strong> <strong>AT&T Fiber</strong> and <strong>Xfinity (Comcast)</strong> are the top local providers in the area.<br>
+      • <strong>Mobile Network:</strong> T-Mobile, Verizon, and AT&T. Prepaid plans are easiest to open when first arriving.<br><br>
+      🚨 <strong>Emergency:</strong> Dial 911 for immediate life-threatening emergencies or crimes in progress.<br>
+      ℹ️ <strong>Local Government:</strong> Dial 311 for local government services and non-sensitive assistance.<br>
+      📞 <strong>Police (Non-Emergency):</strong> Call 305-SHERIFF (305-743-7433) or 305-4-POLICE (305-476-5423) for general inquiries, noise complaints, or minor traffic accidents without injuries.`;
+    }
+    
     if (q.includes('nie') || q.includes('ex15') || q.includes('number')) {
       return `📝 <strong>Applying for a Spanish NIE in Miami:</strong><br><br>
       1. Complete <strong>Form EX-15</strong> in block letters.<br>
@@ -1459,7 +1368,7 @@ function getChatbotResponse(rawQuery) {
     if (q.includes('business') || q.includes('invest') || q.includes('company') || q.includes('llc') || q.includes('sunbiz')) {
       return `💼 <strong>Business & Investing in Florida:</strong><br><br>
       • <strong>Sunbiz.org:</strong> The official State of Florida corporate registry where you can incorporate an LLC or Corp online in minutes.<br>
-      • <strong>Chamber of Commerce:</strong> The <strong>Spain-US Chamber of Commerce</strong> based in Brickell is the premier networking organization in FL.<br>
+      • <strong>Chamber of Commerce:</strong> The <strong>Spain-U.S. Chamber of Commerce</strong> based in Brickell is the premier networking organization in FL.<br>
       • <strong>Visas:</strong> E-2 Investor visas and L-1 Intracompany Transfer visas are the standard corporate vehicles for Spanish business owners.`;
     }
     
@@ -1694,5 +1603,46 @@ function setupContactSection() {
       alert(successMsg);
       contactForm.reset();
     });
+  }
+}
+
+function toggleChecklistItem(card) {
+  card.classList.toggle('completed');
+  
+  // Save checklist state in localStorage
+  const items = document.querySelectorAll('.checklist-item');
+  const states = Array.from(items).map(item => item.classList.contains('completed'));
+  localStorage.setItem('esMiami_checklist_state', JSON.stringify(states));
+}
+
+function initRelocationChecklist() {
+  const items = document.querySelectorAll('.checklist-item');
+  const savedStates = JSON.parse(localStorage.getItem('esMiami_checklist_state'));
+  if (savedStates && savedStates.length === items.length) {
+    items.forEach((item, index) => {
+      if (savedStates[index]) {
+        item.classList.add('completed');
+      }
+    });
+  }
+}
+
+function askAssistantAbout(topic) {
+  const panel = document.getElementById('chatPanel');
+  const input = document.getElementById('chatInputField');
+  if (panel && input) {
+    panel.classList.add('active');
+    
+    let promptText = '';
+    if (topic === 'housing') {
+      promptText = AppState.lang === 'es' ? '¿Dónde encontrar vivienda en Miami y cuáles son las mejores zonas?' : 'Where can I find housing in Miami and what are the best neighborhoods?';
+    } else if (topic === 'transport') {
+      promptText = AppState.lang === 'es' ? '¿Cómo desplazarse por Miami y usar el transporte público o coche?' : 'How do I get around Miami using public transit or a car?';
+    } else if (topic === 'utilities') {
+      promptText = AppState.lang === 'es' ? '¿Cómo dar de alta la electricidad, agua e internet en Miami?' : 'How do I set up electricity, water, and internet services in Miami?';
+    }
+    
+    input.value = promptText;
+    handleUserChatMessage();
   }
 }

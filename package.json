@@ -1,0 +1,15 @@
+{
+  "name": "project_spaininmiami",
+  "version": "1.0.0",
+  "description": "España en Miami Portal - Definitive Elegant Community Hub & Business Directory",
+  "main": "app.js",
+  "scripts": {
+    "dev": "vite --port 8181 --open",
+    "start": "vite --port 8181 --open",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.2.11"
+  }
+}

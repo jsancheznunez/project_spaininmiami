@@ -64,10 +64,6 @@
           <span class="lang-es">Servicios Consulares</span>
           <span class="lang-en">Consular Services</span>
         </div>
-        <div class="nav-menu-item" data-target="marketplace" id="desk-nav-marketplace">
-          <span class="lang-es">Anuncios</span>
-          <span class="lang-en">Classifieds</span>
-        </div>
         <div class="nav-menu-item" data-target="contact" id="desk-nav-contact">
           <span class="lang-es">Contacto</span>
           <span class="lang-en">Contact Us</span>
@@ -87,6 +83,14 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
+        <button class="control-btn menu-toggle" id="menuToggleBtn" aria-label="Abrir menú / Toggle Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
       </div>
     </header>
 
@@ -99,8 +103,7 @@
         </span>
         <h1 class="lang-es">Desde el Sur de la Florida</h1>
         <h1 class="lang-en">From South Florida</h1>
-        <p class="lang-es">La plataforma definitiva para residentes, estudiantes, inversores, turistas y entusiastas de
-          la cultura española en el sur de la Florida.</p>
+        <p class="lang-es">Tu punto de encuentro con España en Miami.</p>
         <p class="lang-en">The definitive platform for residents, students, investors, tourists, and Spanish culture
           enthusiasts in South Florida.</p>
 
@@ -110,9 +113,9 @@
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
           <input type="text" class="search-input" id="globalSearch"
-            placeholder="Busca tapas, consulado, visados, vivienda..."
-            data-placeholder-es="Busca tapas, consulado, visados, vivienda..."
-            data-placeholder-en="Search tapas, consulate, visas, housing...">
+            placeholder="Busca tapas, consulado, visados, restaurantes..."
+            data-placeholder-es="Busca tapas, consulado, visados, restaurantes..."
+            data-placeholder-en="Search tapas, consulate, visas, restaurants...">
         </div>
       </div>
     </section>
@@ -137,6 +140,30 @@
           </button>
         </div>
 
+        <!-- Culture & Events Summary -->
+        <div class="glass-card card-accent-border">
+          <h3 class="lang-es">Cultura y Eventos 🎭</h3>
+          <h3 class="lang-en">Culture & Events 🎭</h3>
+          <p class="lang-es">Disfruta de la agenda cultural española en Florida. Desde recitales de flamenco y catas de vinos tradicionales hasta foros de negocios y networking.</p>
+          <p class="lang-en">Enjoy Spain's rich cultural agenda in Florida. From live flamenco performances and wine tastings to business forums and community networking.</p>
+          <button class="btn btn-secondary" onclick="switchSection('events')">
+            <span class="lang-es">Ver Calendario</span>
+            <span class="lang-en">View Calendar</span>
+          </button>
+        </div>
+
+        <!-- Gastronomy Summary -->
+        <div class="glass-card card-accent-border">
+          <h3 class="lang-es">Gastronomía 🍷</h3>
+          <h3 class="lang-en">Gastronomy 🍷</h3>
+          <p class="lang-es">Explora la auténtica cocina española en el sur de la Florida. Desde tradicionales tabernas de tapas hasta selectas arrocerías y tiendas de productos selectos.</p>
+          <p class="lang-en">Explore authentic Spanish cuisine in South Florida. From traditional tapas taverns to select paella spots and imported gourmet goods.</p>
+          <button class="btn btn-secondary" onclick="filterDirectoryCategory('dining')">
+            <span class="lang-es">Ver Restaurantes</span>
+            <span class="lang-en">View Restaurants</span>
+          </button>
+        </div>
+
         <!-- Featured Spot Summary -->
         <div class="glass-card card-accent-border">
           <h3 class="lang-es">Trámites Consulares 🏢</h3>
@@ -152,18 +179,27 @@
           </button>
         </div>
 
-        <!-- Community Bulletin Summary -->
+        <!-- Sports & Leisure Summary -->
         <div class="glass-card card-accent-border">
-          <h3 class="lang-es">Vivienda 💼</h3>
-          <h3 class="lang-en">Housing 💼</h3>
-          <p class="lang-es">Encuentra información sobre vivienda, habitaciones
-            de alquiler, traspasos de negocios y contactos directos de la comunidad local. ¡Sube tu propio anuncio
-            gratis!</p>
-          <p class="lang-en">Find career opportunities in Spanish corporations based in Florida, shared apartments,
-            business transfers, and direct local connections. Post your own listing for free!</p>
-          <button class="btn btn-secondary" onclick="switchSection('marketplace')">
-            <span class="lang-es">Ver Anuncios</span>
-            <span class="lang-en">View Classifieds</span>
+          <h3 class="lang-es">Deportes y Ocio 🎾</h3>
+          <h3 class="lang-en">Sports & Leisure 🎾</h3>
+          <p class="lang-es">Súmate a la pasión por el pádel, torneos de fútbol, vela y actividades náuticas. Encuentra clubes locales con acento español y grupos de deportistas.</p>
+          <p class="lang-en">Join the local passion for padel, soccer tournaments, sailing, and water sports. Find clubs with Spanish roots and active community sports groups.</p>
+          <button class="btn btn-secondary" onclick="switchSection('directory')">
+            <span class="lang-es">Explorar Clubes</span>
+            <span class="lang-en">Explore Clubs</span>
+          </button>
+        </div>
+
+        <!-- Me Instalo en Miami Summary -->
+        <div class="glass-card card-accent-border">
+          <h3 class="lang-es">Me Instalo en Miami 🌴</h3>
+          <h3 class="lang-en">Relocating to Miami 🌴</h3>
+          <p class="lang-es">Tu guía interactiva paso a paso para comenzar tu nueva vida en Florida. Prepárate con el alta consular, SSN/ITIN, colegios bilingües y carné de conducir.</p>
+          <p class="lang-en">Your step-by-step interactive guide to starting your new life in Florida. Prepare with consular registration, SSN/ITIN, bilingual schools, and your driver's license.</p>
+          <button class="btn btn-secondary" onclick="document.getElementById('onboarding-checklist').scrollIntoView({ behavior: 'smooth' })">
+            <span class="lang-es">Ver Checklist</span>
+            <span class="lang-en">View Checklist</span>
           </button>
         </div>
 
@@ -202,6 +238,173 @@
 
         </div>
       </section>
+
+      <!-- Relocation Onboarding Checklist: Me Instalo en Miami -->
+      <section id="onboarding-checklist" style="margin-top: 4rem;">
+        <h2 class="lang-es">Me Instalo en Miami 🌴</h2>
+        <h2 class="lang-en">Setting Up in Miami 🌴</h2>
+        <p class="lang-es" style="margin-top: 0.5rem; font-size: 1.1rem; color: var(--color-text-muted);">
+          Tu guía paso a paso para comenzar tu nueva vida en el sur de la Florida sin complicaciones. Haz clic en las tareas para marcarlas como completadas.
+        </p>
+        <p class="lang-en" style="margin-top: 0.5rem; font-size: 1.1rem; color: var(--color-text-muted);">
+          Your step-by-step guide to starting your new life in South Florida smoothly. Click on tasks to mark them as completed.
+        </p>
+
+        <div class="relocation-checklist" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem;">
+          
+          <!-- Step 1 -->
+          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-primary); cursor: pointer;" onclick="toggleChecklistItem(this)">
+            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
+              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div style="flex-grow: 1;">
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">1. Servicios locales</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">1. Local Services & Utilities</h4>
+              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Configura suministros básicos de tu hogar: electricidad (FPL), agua (Miami-Dade Water), internet y telefonía.</p>
+              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Set up home utilities: electricity (FPL connection), county water, high-speed internet, and mobile phone plans.</p>
+              <div style="margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <div style="padding: 0.4rem 0.75rem; border-radius: var(--radius-sm); background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2); font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem; width: fit-content;">
+                  <span style="font-size: 1rem;">🚨</span>
+                  <span class="lang-es" style="color: #f43f5e; font-weight: 500;"><strong>Emergencia:</strong> Llame al 911 para emergencias médicas o delitos en curso.</span>
+                  <span class="lang-en" style="color: #f43f5e; font-weight: 500;"><strong>Emergency:</strong> Dial 911 for immediate life-threatening emergencies or crimes in progress.</span>
+                </div>
+                <div style="padding: 0.4rem 0.75rem; border-radius: var(--radius-sm); background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem; width: fit-content;">
+                  <span style="font-size: 1rem;">ℹ️</span>
+                  <span class="lang-es" style="color: #3b82f6; font-weight: 500;"><strong>Servicios Municipales:</strong> Marque 311 para servicios del gobierno local y asistencia no urgente.</span>
+                  <span class="lang-en" style="color: #3b82f6; font-weight: 500;"><strong>Local Government:</strong> Dial 311 for local government services and non-sensitive assistance.</span>
+                </div>
+                <div style="padding: 0.4rem 0.75rem; border-radius: var(--radius-sm); background: rgba(100, 116, 139, 0.08); border: 1px solid rgba(100, 116, 139, 0.2); font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem; width: fit-content;">
+                  <span style="font-size: 1rem;">📞</span>
+                  <span class="lang-es" style="color: #64748b; font-weight: 500;"><strong>Policía (No Urgente):</strong> Llame al 305-SHERIFF (305-743-7433) o al 305-4-POLICE (305-476-5423) para consultas generales, quejas por ruido o accidentes menores sin heridos.</span>
+                  <span class="lang-en" style="color: #64748b; font-weight: 500;"><strong>Police (Non-Emergency):</strong> Call 305-SHERIFF (305-743-7433) or 305-4-POLICE (305-476-5423) for general inquiries, noise complaints, or minor traffic accidents without injuries.</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); askAssistantAbout('utilities')">
+              <span class="lang-es">Preguntar Asistente</span>
+              <span class="lang-en">Ask Assistant</span>
+            </button>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-accent); cursor: pointer;" onclick="toggleChecklistItem(this)">
+            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
+              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div style="flex-grow: 1;">
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">2. Alta Consular (Registro de Matrícula)</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">2. Consular Registration (Registro de Matrícula)</h4>
+              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Esencial para tramitar pasaportes, votar desde el extranjero y certificar tu residencia en Florida.</p>
+              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Essential to renew passports, execute official documents, and vote from abroad.</p>
+            </div>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); switchSection('resources'); openResourceTab('consular')">
+              <span class="lang-es">Ver Trámite</span>
+              <span class="lang-en">View Steps</span>
+            </button>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-primary); cursor: pointer;" onclick="toggleChecklistItem(this)">
+            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
+              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div style="flex-grow: 1;">
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">3. Número de Seguridad Social (SSN) o ITIN</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">3. Social Security Number (SSN) or ITIN</h4>
+              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Indispensable para trabajar legalmente, declarar impuestos federales y construir tu historial crediticio.</p>
+              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Required for formal employment, tax filing, and establishing your US credit score history.</p>
+            </div>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); switchSection('resources'); openResourceTab('investors')">
+              <span class="lang-es">Ver Guía</span>
+              <span class="lang-en">View Guide</span>
+            </button>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-accent); cursor: pointer;" onclick="toggleChecklistItem(this)">
+            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
+              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div style="flex-grow: 1;">
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">4. Educación y Matrícula Escolar (Programa ISA)</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">4. Education & School Enrollment (ISA Program)</h4>
+              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Inscribe a tus hijos en el sistema público bilingüe de Miami-Dade (M-DCPS) con secciones oficiales españolas.</p>
+              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Enroll your children in the Miami-Dade Public Schools (M-DCPS) featuring Spanish Ministry curricula.</p>
+            </div>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); switchSection('resources'); openResourceTab('students')">
+              <span class="lang-es">Ver Colegios</span>
+              <span class="lang-en">View Schools</span>
+            </button>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-primary); cursor: pointer;" onclick="toggleChecklistItem(this)">
+            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
+              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div style="flex-grow: 1;">
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">5. Licencia de Conducir de Florida (DMV)</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">5. Florida Driver's License (DMV)</h4>
+              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Solicita tu carné de conducir de Florida en las oficinas del DHSMV antes de que expire tu permiso internacional.</p>
+              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Get your Florida driver's license at local DMV offices before your international license expires.</p>
+            </div>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); switchSection('resources')">
+              <span class="lang-es">Ver Detalles</span>
+              <span class="lang-en">View Details</span>
+            </button>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-accent); cursor: pointer;" onclick="toggleChecklistItem(this)">
+            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
+              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div style="flex-grow: 1;">
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">6. Dónde encontrar vivienda</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">6. Where to Find Housing</h4>
+              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Consejos sobre zonas (Brickell, Coral Gables, Doral) y el proceso de alquiler en Florida sin historial de crédito local.</p>
+              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Neighborhood guides (Brickell, Gables, Doral) and renting in Florida without local credit history.</p>
+            </div>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); askAssistantAbout('housing')">
+              <span class="lang-es">Preguntar Asistente</span>
+              <span class="lang-en">Ask Assistant</span>
+            </button>
+          </div>
+
+          <!-- Step 7 -->
+          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-primary); cursor: pointer;" onclick="toggleChecklistItem(this)">
+            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
+              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div style="flex-grow: 1;">
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">7. Cómo desplazarse</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">7. How to Get Around</h4>
+              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Información sobre Metromover gratuito, transporte público (EASY Card), compra de vehículo y peajes (SunPass).</p>
+              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Details on free Metromover loops, public transit (EASY Card), car purchasing, and road toll tags (SunPass).</p>
+            </div>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); askAssistantAbout('transport')">
+              <span class="lang-es">Preguntar Asistente</span>
+              <span class="lang-en">Ask Assistant</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
     </main>
 
     <!-- ==================== SECTION 2: DIRECTORY / MAP ==================== -->
@@ -298,6 +501,10 @@
               <g class="map-pin" data-id="ispa" transform="translate(105, 175)">
                 <circle r="7"></circle>
                 <text y="-10">🎓</text>
+              </g>
+              <g class="map-pin" data-id="mhcac" transform="translate(135, 118)">
+                <circle r="7"></circle>
+                <text y="-10">🏛️</text>
               </g>
             </svg>
           </div>
@@ -612,14 +819,35 @@
 
             <div class="guide-step">
               <div class="guide-step-body">
-                <h4 class="lang-es">Cámara de Comercio de España en Estados Unidos</h4>
-                <h4 class="lang-en">Spain-US Chamber of Commerce</h4>
+                <h4 class="lang-es">Organizaciones Profesionales y de Negocios (Spain-U.S. Chamber of Commerce)</h4>
+                <h4 class="lang-en">Spanish Business & Professional Organizations (Spain-U.S. Chamber of Commerce)</h4>
                 <p class="lang-es">Con sede principal en Miami, es el principal punto de networking empresarial.
                   Organizan mesas redondas mensuales, asesoran en implantación comercial y facilitan visados de
                   transferencia interna (L-1) o de inversor (E-2).</p>
                 <p class="lang-en">Based in Miami, this chamber is the premier hub for corporate networking. They host
                   monthly business panels, guide commercial expansions, and assist with investor visas (E-2) or
                   intracompany transfers (L-1).</p>
+              </div>
+            </div>
+
+            <div class="guide-step" style="margin-top: 1.5rem;">
+              <div class="guide-step-body" style="width: 100%;">
+                <h4 class="lang-es">Presencia de Empresas de Capital Español en el Sur de la Florida</h4>
+                <h4 class="lang-en">Spanish-Owned Companies with South Florida Presence</h4>
+                <p class="lang-es">Muchas de las principales multinacionales españolas mantienen oficinas corporativas, hubs de operaciones para las Américas o clientes de primer nivel en Miami:</p>
+                <p class="lang-en">Many major Spanish multinational companies maintain corporate headquarters, regional operational hubs, or key operations in Miami:</p>
+                
+                <div class="company-badges" style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem;">
+                  <span style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary); box-shadow: var(--shadow-sm); transition: transform var(--transition-fast);">🔴 Banco Santander</span>
+                  <span style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary); box-shadow: var(--shadow-sm); transition: transform var(--transition-fast);">🔵 BBVA</span>
+                  <span style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary); box-shadow: var(--shadow-sm); transition: transform var(--transition-fast);">📞 Telefónica</span>
+                  <span style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary); box-shadow: var(--shadow-sm); transition: transform var(--transition-fast);">💻 Indra</span>
+                  <span style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary); box-shadow: var(--shadow-sm); transition: transform var(--transition-fast);">✈️ Iberia Airlines</span>
+                  <span style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary); box-shadow: var(--shadow-sm); transition: transform var(--transition-fast);">🛡️ Mapfre</span>
+                  <span style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary); box-shadow: var(--shadow-sm); transition: transform var(--transition-fast);">🏗️ Ferrovial</span>
+                  <span style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary); box-shadow: var(--shadow-sm); transition: transform var(--transition-fast);">⚡ Acciona</span>
+                  <span style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary); box-shadow: var(--shadow-sm); transition: transform var(--transition-fast);">🏨 Meliá Hotels International</span>
+                </div>
               </div>
             </div>
           </div>
@@ -721,48 +949,6 @@
       </div>
     </section>
 
-    <!-- ==================== SECTION 5: MARKETPLACE ==================== -->
-    <section class="app-section" id="sec-marketplace">
-      <div class="market-header">
-        <div>
-          <h2 class="lang-es">Tablón de Anuncios y Clasificados</h2>
-          <h2 class="lang-en">Community Classifieds Board</h2>
-          <p class="lang-es" style="margin:0;">Vivienda, ofertas de servicios y redes profesionales de españoles en
-            Miami.</p>
-          <p class="lang-en" style="margin:0;">Rentals, freelance offers, and professional networks in Miami.</p>
-        </div>
-        <button class="btn btn-primary" id="openPostDialogBtn">
-          <span class="lang-es">+ Publicar Anuncio</span>
-          <span class="lang-en">+ Post a Listing</span>
-        </button>
-      </div>
-
-      <!-- Filters -->
-      <div class="filter-tabs" id="marketFilters">
-        <button class="filter-tab active" data-market-cat="all">
-          <span class="lang-es">Todos</span>
-          <span class="lang-en">All</span>
-        </button>
-        <button class="filter-tab" data-market-cat="housing">
-          <span class="lang-es">Vivienda</span>
-          <span class="lang-en">Housing</span>
-        </button>
-
-        <button class="filter-tab" data-market-cat="services">
-          <span class="lang-es">Servicios y Clases</span>
-          <span class="lang-en">Services & Classes</span>
-        </button>
-        <button class="filter-tab" data-market-cat="social">
-          <span class="lang-es">Social y Quedadas</span>
-          <span class="lang-en">Social & Meetups</span>
-        </button>
-      </div>
-
-      <!-- Marketplace grid of listings -->
-      <div class="market-grid" id="marketplaceGrid">
-        <!-- Dynamic listings injected from JS -->
-      </div>
-    </section>
 
     <!-- ==================== SECTION 6: CONTACT US ==================== -->
     <section class="app-section" id="sec-contact">
@@ -809,10 +995,10 @@
 
           <div style="background: var(--color-accent-light); padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid var(--color-accent); margin-top: auto;">
             <p class="lang-es" style="margin: 0; font-size: 0.82rem; color: var(--color-text-main); font-weight: 500; line-height: 1.4;">
-              <strong>¿Tienes un negocio?</strong> Regístralo en nuestro directorio interactivo o sube un anuncio clasificado directamente desde la sección "Anuncios".
+              <strong>¿Tienes un negocio?</strong> Regístralo en nuestro directorio interactivo o ponte en contacto con nosotros para colaborar con la comunidad.
             </p>
             <p class="lang-en" style="margin: 0; font-size: 0.82rem; color: var(--color-text-main); font-weight: 500; line-height: 1.4;">
-              <strong>Own a business?</strong> Register it in our interactive directory or post a classified listing directly from the "Classifieds" section.
+              <strong>Own a business?</strong> Register it in our interactive directory or get in touch with us to collaborate with the community.
             </p>
           </div>
         </div>
@@ -897,10 +1083,6 @@
             <span class="lang-es">Servicios Consulares</span>
             <span class="lang-en">Consular Services</span>
           </a>
-          <a href="#" onclick="switchSection('marketplace'); return false;" style="color: var(--color-text-muted);">
-            <span class="lang-es">Anuncios</span>
-            <span class="lang-en">Classifieds</span>
-          </a>
           <a href="#" onclick="switchSection('contact'); return false;" style="color: var(--color-primary); border-bottom: 2px solid var(--color-primary); padding-bottom: 2px;">
             <span class="lang-es">Contacto</span>
             <span class="lang-en">Contact Us</span>
@@ -950,98 +1132,10 @@
         <span class="lang-es">Servicios</span>
         <span class="lang-en">Services</span>
       </button>
-      <button class="mobile-nav-item" data-target="marketplace">
-        <svg viewBox="0 0 24 24">
-          <line x1="4" y1="21" x2="4" y2="14"></line>
-          <line x1="4" y1="10" x2="4" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="12"></line>
-          <line x1="12" y1="8" x2="12" y2="3"></line>
-          <line x1="20" y1="21" x2="20" y2="16"></line>
-          <line x1="20" y1="12" x2="20" y2="3"></line>
-          <line x1="1" y1="14" x2="7" y2="14"></line>
-          <line x1="9" y1="8" x2="15" y2="8"></line>
-          <line x1="17" y1="16" x2="23" y2="16"></line>
-        </svg>
-        <span class="lang-es">Anuncios</span>
-        <span class="lang-en">Classifieds</span>
-      </button>
     </nav>
 
-    <!-- ==================== POST CLASSIFIED DIALOG ==================== -->
-    <div class="dialog-overlay" id="postDialogOverlay">
-      <div class="dialog-box">
-        <div class="dialog-header">
-          <h3 class="lang-es">Publicar Anuncio Gratis</h3>
-          <h3 class="lang-en">Post a Free Listing</h3>
-          <button class="dialog-close" id="closePostDialogBtn" aria-label="Cerrar / Close">&times;</button>
-        </div>
 
-        <form id="classifiedForm">
-          <div class="form-group">
-            <label for="postTitle">
-              <span class="lang-es">Título del Anuncio *</span>
-              <span class="lang-en">Listing Title *</span>
-            </label>
-            <input type="text" class="form-control" id="postTitle" required
-              placeholder="Ej. Alquiler de habitación en Brickell"
-              data-placeholder-es="Ej. Alquiler de habitación en Brickell"
-              data-placeholder-en="E.g. Room for rent in Brickell">
-          </div>
-
-          <div class="form-group">
-            <label for="postCategory">
-              <span class="lang-es">Categoría *</span>
-              <span class="lang-en">Category *</span>
-            </label>
-            <select class="form-control" id="postCategory" required>
-              <option value="housing" class="lang-es">Vivienda (Habitaciones / Alquiler)</option>
-              <option value="housing" class="lang-en">Housing (Rooms / Rentals)</option>
-
-              <option value="services" class="lang-es">Servicios Profesionales o Clases</option>
-              <option value="services" class="lang-en">Professional Services / Classes</option>
-              <option value="social" class="lang-es">Quedadas y Comunidad</option>
-              <option value="social" class="lang-en">Social Meetups & Community</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="postPrice">
-              <span class="lang-es">Precio o Compensación (Opcional)</span>
-              <span class="lang-en">Price or Compensation (Optional)</span>
-            </label>
-            <input type="text" class="form-control" id="postPrice" placeholder="Ej. $1,200/mes o Gratuito"
-              data-placeholder-es="Ej. $1,200/mes o Gratuito" data-placeholder-en="E.g. $1,200/month or Free">
-          </div>
-
-          <div class="form-group">
-            <label for="postContact">
-              <span class="lang-es">Contacto (Email, Teléfono o Telegram) *</span>
-              <span class="lang-en">Contact Info (Email, Phone, or Telegram) *</span>
-            </label>
-            <input type="text" class="form-control" id="postContact" required placeholder="Ej. carlos@email.com"
-              data-placeholder-es="Ej. carlos@email.com" data-placeholder-en="E.g. carlos@email.com">
-          </div>
-
-          <div class="form-group">
-            <label for="postDescription">
-              <span class="lang-es">Descripción detallada *</span>
-              <span class="lang-en">Detailed Description *</span>
-            </label>
-            <textarea class="form-control" id="postDescription" rows="4" required
-              placeholder="Describe lo que buscas u ofreces con detalle..."
-              data-placeholder-es="Describe lo que buscas u ofreces con detalle..."
-              data-placeholder-en="Describe what you are looking for or offering..."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width:100%; margin-top:1rem;">
-            <span class="lang-es">Publicar Ahora</span>
-            <span class="lang-en">Publish Now</span>
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <!-- ==================== FLOATING CHATBOT ASSISTANT "EL GUÍA" ==================== -->
+    <!-- ==================== FLOATING CHATBOT ASSISTANT "EL ASISTENTE" ==================== -->
     <button class="chat-launcher" id="chatLauncherBtn" aria-label="Abrir Asistente / Open Chatbot">
       <svg viewBox="0 0 24 24">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -1053,8 +1147,8 @@
         <div class="chat-header-info">
           <div class="chat-avatar">🇪🇸</div>
           <div>
-            <h4 class="lang-es">El Guía de Miami</h4>
-            <h4 class="lang-en">The Miami Guide</h4>
+            <h4 class="lang-es">El Asistente</h4>
+            <h4 class="lang-en">The Assistant</h4>
             <p class="lang-es">Asistente Virtual • Online</p>
             <p class="lang-en">Virtual Assistant • Online</p>
           </div>
@@ -1066,10 +1160,10 @@
       <!-- Messages Feed -->
       <div class="chat-body" id="chatMsgBody">
         <div class="chat-msg chat-msg-bot">
-          <span class="lang-es">¡Hola! Soy <strong>El Guía</strong>. Estoy aquí para ayudarte a resolver dudas sobre
+          <span class="lang-es">¡Hola! Soy <strong>El Asistente</strong>. Estoy aquí para ayudarte a resolver dudas sobre
             mudarte a Miami, trámites de visado, renovación de pasaporte español, o recomendarte los mejores sitios de
             tapas de la ciudad. ¿Qué deseas consultar hoy?</span>
-          <span class="lang-en">Hi! I am <strong>The Guide</strong>. I'm here to help answer questions about moving to
+          <span class="lang-en">Hi! I am <strong>The Assistant</strong>. I'm here to help answer questions about moving to
             Miami, visas, passport renewals, or recommend the absolute best authentic tapas spots. What would you like
             to ask today?</span>
         </div>
