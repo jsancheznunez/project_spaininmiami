@@ -1300,6 +1300,7 @@ function getChatbotResponse(rawQuery) {
     
     if (q.includes('colegio') || q.includes('educa') || q.includes('estudia') || q.includes('ispa') || q.includes('auxiliar')) {
       return `🎓 <strong>Colegios y Educación en Miami:</strong><br><br>
+      • <strong>Agregaduría de Educación en Miami:</strong> Dependiente de la Embajada, coordina la cooperación educativa local y los programas ISA.<br>
       • <strong>Programa ISA:</strong> El Ministerio de Educación de España colabora con escuelas públicas de Miami-Dade para impartir clases bilingües de excelencia.<br>
       • <strong>ISPA</strong> (International Studies Preparatory Academy) en Coral Gables es un colegio 100% bilingüe muy solicitado.<br>
       • <strong>Auxiliares de Conversación:</strong> Si eres profesor, la Embajada de España convoca plazas anuales para trabajar en colegios de Florida bajo el visado J-1.`;
@@ -1307,8 +1308,9 @@ function getChatbotResponse(rawQuery) {
     
     if (q.includes('negocio') || q.includes('invertir') || q.includes('empresa') || q.includes('llc') || q.includes('sunbiz')) {
       return `💼 <strong>Negocios y Emprendimiento en Florida:</strong><br><br>
+      • <strong>Oficina Económica y Comercial (ICEX):</strong> Promueve exportaciones e inversiones de empresas españolas en el sur de EE. UU.<br>
+      • <strong>Spain-U.S. Chamber of Commerce:</strong> Cámara de comercio oficial ubicada en Coral Gables que apoya la integración de empresas en Florida.<br>
       • <strong>Sunbiz.org:</strong> Es el portal estatal oficial de Florida donde puedes constituir una LLC o Corp online en menos de 48 horas.<br>
-      • <strong>Cámara de Comercio:</strong> La <strong>Spain-U.S. Chamber of Commerce</strong> en Brickell ofrece excelentes sesiones de networking empresarial y te guía en las regulaciones de Florida.<br>
       • <strong>Visados:</strong> Las visas E-2 de inversor y L-1 de transferencia corporativa son los caminos legales más comunes para empresarios españoles.`;
     }
     
@@ -1382,6 +1384,7 @@ function getChatbotResponse(rawQuery) {
     
     if (q.includes('school') || q.includes('educat') || q.includes('study') || q.includes('ispa') || q.includes('assistant')) {
       return `🎓 <strong>Bilingual Education in Miami:</strong><br><br>
+      • <strong>Education Office of Spain in Miami:</strong> Coordinates the official academic cooperation and visit programs from the Spanish Embassy.<br>
       • <strong>ISA Program:</strong> Spain's Ministry of Education partners with Miami-Dade County Public Schools to offer high-quality bilingual tracks.<br>
       • <strong>ISPA</strong> (International Studies Preparatory Academy) in Coral Gables is an exceptional, highly-sought public school option.<br>
       • <strong>Language Assistants:</strong> Eligible Spanish educators can apply annually to teach in Florida schools through the J-1 exchange visa.`;
@@ -1389,8 +1392,9 @@ function getChatbotResponse(rawQuery) {
     
     if (q.includes('business') || q.includes('invest') || q.includes('company') || q.includes('llc') || q.includes('sunbiz')) {
       return `💼 <strong>Business & Investing in Florida:</strong><br><br>
+      • <strong>Economic & Commercial Office of Spain (ICEX):</strong> Promotes trade expansion and helps Spanish companies establish in the Southern US.<br>
+      • <strong>Spain–U.S. Chamber of Commerce:</strong> Located in Coral Gables, helps Spanish and local companies with networking and market entry.<br>
       • <strong>Sunbiz.org:</strong> The official State of Florida corporate registry where you can incorporate an LLC or Corp online in minutes.<br>
-      • <strong>Chamber of Commerce:</strong> The <strong>Spain-U.S. Chamber of Commerce</strong> based in Brickell is the premier networking organization in FL.<br>
       • <strong>Visas:</strong> E-2 Investor visas and L-1 Intracompany Transfer visas are the standard corporate vehicles for Spanish business owners.`;
     }
     
