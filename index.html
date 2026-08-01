@@ -254,9 +254,10 @@
           Your step-by-step guide to starting your new life in South Florida smoothly. Click on tasks to mark them as completed.
         </p>
 
+
         <div class="relocation-checklist" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem;">
           
-          <!-- Step 1 -->
+          <!-- Step 1 (Servicios locales) -->
           <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-primary); cursor: pointer;" onclick="toggleChecklistItem(this)">
             <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
               <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
@@ -292,7 +293,7 @@
             </button>
           </div>
 
-          <!-- Step 2 -->
+          <!-- Step 2 (Cómo desplazarse) -->
           <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-accent); cursor: pointer;" onclick="toggleChecklistItem(this)">
             <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
               <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
@@ -300,18 +301,18 @@
               </svg>
             </div>
             <div style="flex-grow: 1;">
-              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">2. Alta Consular (Registro de Matrícula)</h4>
-              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">2. Consular Registration (Registro de Matrícula)</h4>
-              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Esencial para tramitar pasaportes, votar desde el extranjero y certificar tu residencia en Florida.</p>
-              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Essential to renew passports, execute official documents, and vote from abroad.</p>
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">2. Cómo desplazarse</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">2. How to Get Around</h4>
+              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Información sobre Metromover gratuito, Metrobus, Trolley, Tri-Rail, Brightline, taxis y plataformas de transporte (Uber, Lyft), transporte público (EASY Card), compra de vehículo y peajes (SunPass).</p>
+              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Details on free Metromover loops, Metrobus, Trolley, Tri-Rail, Brightline, taxis & ridesharing (Uber, Lyft), public transit (EASY Card), car purchasing, and road toll tags (SunPass).</p>
             </div>
-            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); switchSection('resources'); openResourceTab('consular')">
-              <span class="lang-es">Ver Trámite</span>
-              <span class="lang-en">View Steps</span>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); askAssistantAbout('transport')">
+              <span class="lang-es">Preguntar Asistente</span>
+              <span class="lang-en">Ask Assistant</span>
             </button>
           </div>
 
-          <!-- Step 3 -->
+          <!-- Step 3 (Dónde encontrar vivienda) -->
           <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-primary); cursor: pointer;" onclick="toggleChecklistItem(this)">
             <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
               <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
@@ -319,65 +320,8 @@
               </svg>
             </div>
             <div style="flex-grow: 1;">
-              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">3. Número de Seguridad Social (SSN) o ITIN</h4>
-              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">3. Social Security Number (SSN) or ITIN</h4>
-              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Indispensable para trabajar legalmente, declarar impuestos federales y construir tu historial crediticio.</p>
-              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Required for formal employment, tax filing, and establishing your US credit score history.</p>
-            </div>
-            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); switchSection('resources'); openResourceTab('investors')">
-              <span class="lang-es">Ver Guía</span>
-              <span class="lang-en">View Guide</span>
-            </button>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-accent); cursor: pointer;" onclick="toggleChecklistItem(this)">
-            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
-              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            </div>
-            <div style="flex-grow: 1;">
-              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">4. Educación y Matrícula Escolar (Programa ISA)</h4>
-              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">4. Education & School Enrollment (ISA Program)</h4>
-              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Inscribe a tus hijos en el sistema público bilingüe de Miami-Dade (M-DCPS) con secciones oficiales españolas.</p>
-              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Enroll your children in the Miami-Dade Public Schools (M-DCPS) featuring Spanish Ministry curricula.</p>
-            </div>
-            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); switchSection('resources'); openResourceTab('students')">
-              <span class="lang-es">Ver Colegios</span>
-              <span class="lang-en">View Schools</span>
-            </button>
-          </div>
-
-          <!-- Step 5 -->
-          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-primary); cursor: pointer;" onclick="toggleChecklistItem(this)">
-            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
-              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            </div>
-            <div style="flex-grow: 1;">
-              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">5. Licencia de Conducir de Florida (DMV)</h4>
-              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">5. Florida Driver's License (DMV)</h4>
-              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Solicita tu carné de conducir de Florida en las oficinas del DHSMV antes de que expire tu permiso internacional.</p>
-              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Get your Florida driver's license at local DMV offices before your international license expires.</p>
-            </div>
-            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); switchSection('resources')">
-              <span class="lang-es">Ver Detalles</span>
-              <span class="lang-en">View Details</span>
-            </button>
-          </div>
-
-          <!-- Step 6 -->
-          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-accent); cursor: pointer;" onclick="toggleChecklistItem(this)">
-            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
-              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            </div>
-            <div style="flex-grow: 1;">
-              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">6. Dónde encontrar vivienda</h4>
-              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">6. Where to Find Housing</h4>
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">3. Dónde encontrar vivienda</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">3. Where to Find Housing</h4>
               <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Consejos sobre zonas (Brickell, Coral Gables, Doral) y el proceso de alquiler en Florida sin historial de crédito local.</p>
               <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Neighborhood guides (Brickell, Gables, Doral) and renting in Florida without local credit history.</p>
             </div>
@@ -387,7 +331,26 @@
             </button>
           </div>
 
-          <!-- Step 7 -->
+          <!-- Step 4 (Alta Consular) -->
+          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-accent); cursor: pointer;" onclick="toggleChecklistItem(this)">
+            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
+              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div style="flex-grow: 1;">
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">4. Alta Consular (Registro de Matrícula)</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">4. Consular Registration (Registro de Matrícula)</h4>
+              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Esencial para tramitar pasaportes, votar desde el extranjero y certificar tu residencia en Florida.</p>
+              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Essential to renew passports, execute official documents, and vote from abroad.</p>
+            </div>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); switchSection('resources'); openResourceTab('consular')">
+              <span class="lang-es">Ver Trámite</span>
+              <span class="lang-en">View Steps</span>
+            </button>
+          </div>
+
+          <!-- Step 5 (SSN o ITIN) -->
           <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-primary); cursor: pointer;" onclick="toggleChecklistItem(this)">
             <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
               <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
@@ -395,14 +358,52 @@
               </svg>
             </div>
             <div style="flex-grow: 1;">
-              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">7. Cómo desplazarse</h4>
-              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">7. How to Get Around</h4>
-              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Información sobre Metromover gratuito, Metrobus, Trolley, Tri-Rail, Brightline, taxis y plataformas de transporte (Uber, Lyft), transporte público (EASY Card), compra de vehículo y peajes (SunPass).</p>
-              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Details on free Metromover loops, Metrobus, Trolley, Tri-Rail, Brightline, taxis & ridesharing (Uber, Lyft), public transit (EASY Card), car purchasing, and road toll tags (SunPass).</p>
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">5. Número de Seguridad Social (SSN) o ITIN</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">5. Social Security Number (SSN) or ITIN</h4>
+              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Indispensable para trabajar legalmente, declarar impuestos federales y construir tu historial crediticio.</p>
+              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Required for formal employment, tax filing, and establishing your US credit score history.</p>
             </div>
-            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); askAssistantAbout('transport')">
-              <span class="lang-es">Preguntar Asistente</span>
-              <span class="lang-en">Ask Assistant</span>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); switchSection('resources'); openResourceTab('investors')">
+              <span class="lang-es">Ver Guía</span>
+              <span class="lang-en">View Guide</span>
+            </button>
+          </div>
+
+          <!-- Step 6 (Educación) -->
+          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-accent); cursor: pointer;" onclick="toggleChecklistItem(this)">
+            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
+              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div style="flex-grow: 1;">
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">6. Educación y Matrícula Escolar (Programa ISA)</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">6. Education & School Enrollment (ISA Program)</h4>
+              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Inscribe a tus hijos en el sistema público bilingüe de Miami-Dade (M-DCPS) con secciones oficiales españolas.</p>
+              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Enroll your children in the Miami-Dade Public Schools (M-DCPS) featuring Spanish Ministry curricula.</p>
+            </div>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); switchSection('resources'); openResourceTab('students')">
+              <span class="lang-es">Ver Colegios</span>
+              <span class="lang-en">View Schools</span>
+            </button>
+          </div>
+
+          <!-- Step 7 (Licencia de Conducir) -->
+          <div class="glass-card checklist-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; transition: background var(--transition-fast), border-color var(--transition-fast); border-left: 4px solid var(--color-primary); cursor: pointer;" onclick="toggleChecklistItem(this)">
+            <div class="checklist-checkbox" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--color-border); display: grid; place-content: center; flex-shrink: 0; background: var(--color-surface); transition: all var(--transition-fast);">
+              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: white; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; display: none;" class="check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div style="flex-grow: 1;">
+              <h4 class="lang-es" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">7. Licencia de Conducir de Florida (DMV)</h4>
+              <h4 class="lang-en" style="margin: 0; font-size: 1.1rem; color: var(--color-secondary);">7. Florida Driver's License (DMV)</h4>
+              <p class="lang-es" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Solicita tu carné de conducir de Florida en las oficinas del DHSMV antes de que expire tu permiso internacional.</p>
+              <p class="lang-en" style="margin: 0.35rem 0 0 0; font-size: 0.9rem; color: var(--color-text-muted);">Get your Florida driver's license at local DMV offices before your international license expires.</p>
+            </div>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; flex-shrink: 0;" onclick="event.stopPropagation(); switchSection('resources')">
+              <span class="lang-es">Ver Detalles</span>
+              <span class="lang-en">View Details</span>
             </button>
           </div>
 
