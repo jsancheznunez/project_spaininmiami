@@ -1398,10 +1398,10 @@ function getChatbotResponse(rawQuery) {
       return `✈️ <strong>Official Spain Tourism Resources:</strong><br><br>
       • <strong>Tourist Office of Spain in Miami:</strong> The official Turespaña delegation located in Brickell (1395 Brickell Ave #1130). Provides physical maps, custom brochures, and destination guidance.<br>
       • <strong>Official Portal:</strong> Explore <a href="https://www.spain.info" target="_blank"><strong>Spain.info</strong></a> to secure comprehensive planning guides for Madrid, Barcelona, Andalusia, and cultural hotspots.<br>
-      • <strong>Consular Services Hub:</strong> Navigate to the <strong>"Consular Services"</strong> tab and choose <strong>"Official Spain Tourism"</strong> to find entry guides, castle hotels (Paradores), and ETIAS travel rules.`;
+      • <strong>Spain Offices Hub:</strong> Navigate to the <strong>"Spain Offices"</strong> tab and choose <strong>"Official Spain Tourism"</strong> to find entry guides, castle hotels (Paradores), and ETIAS travel rules.`;
     }
     
-    return `Got it! I've noted your question about <em>"${rawQuery}"</em>. You can discover granular guides under <strong>"Consular Services"</strong> or navigate the interactive pins on the <strong>"Map & Spots"</strong> board. How else can I help you today?`;
+    return `Got it! I've noted your question about <em>"${rawQuery}"</em>. You can discover granular guides under <strong>"Spain Offices"</strong> or navigate the interactive pins on the <strong>"Map & Spots"</strong> board. How else can I help you today?`;
   }
 }
 
