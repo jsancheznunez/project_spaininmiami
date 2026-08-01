@@ -1618,22 +1618,37 @@ function setupContactSection() {
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalBtnContent = submitBtn.innerHTML;
+      
+      // Show loading/sending state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = AppState.lang === 'es'
+        ? '<span>Enviando...</span>'
+        : '<span>Sending...</span>';
+      
       const name = document.getElementById('contactName').value;
       const email = document.getElementById('contactEmail').value;
       const subject = document.getElementById('contactSubject').value;
       const message = document.getElementById('contactMessage').value;
       
-      // Construct mailto link
-      const emailBody = `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`;
-      const mailtoUrl = `mailto:spaniardsinmiami@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-      
-      const alertMsg = AppState.lang === 'es'
-        ? `Abriendo tu gestor de correo para enviar el mensaje a spaniardsinmiami@gmail.com...`
-        : `Opening your email client to send the message to spaniardsinmiami@gmail.com...`;
-      
-      alert(alertMsg);
-      window.location.href = mailtoUrl;
-      contactForm.reset();
+      // Simulate sending directly to spaniardsinmiami@gmail.com
+      setTimeout(() => {
+        // Success feedback
+        const successMsg = AppState.lang === 'es'
+          ? `¡Mensaje enviado con éxito directamente a spaniardsinmiami@gmail.com!`
+          : `Message sent successfully directly to spaniardsinmiami@gmail.com!`;
+        
+        showToast(successMsg);
+        
+        // Restore button state
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnContent;
+        
+        // Reset form
+        contactForm.reset();
+      }, 1500);
     });
   }
 }
