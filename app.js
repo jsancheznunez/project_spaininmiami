@@ -584,16 +584,32 @@ function setupNavigation() {
 }
 
 function switchSection(sectionId) {
+  let targetId = sectionId;
+  let shouldScrollToChecklist = false;
+  if (sectionId === 'relocation') {
+    targetId = 'home';
+    shouldScrollToChecklist = true;
+  }
+
   // Hide all sections
   document.querySelectorAll('.app-section').forEach(sec => {
     sec.classList.remove('active');
   });
   
   // Show active section
-  const activeSec = document.getElementById(`sec-${sectionId}`);
+  const activeSec = document.getElementById(`sec-${targetId}`);
   if (activeSec) {
     activeSec.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (shouldScrollToChecklist) {
+      setTimeout(() => {
+        const checklist = document.getElementById('onboarding-checklist');
+        if (checklist) {
+          checklist.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
   
   AppState.currentSection = sectionId;
