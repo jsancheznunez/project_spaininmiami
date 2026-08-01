@@ -1633,22 +1633,46 @@ function setupContactSection() {
       const subject = document.getElementById('contactSubject').value;
       const message = document.getElementById('contactMessage').value;
       
-      // Simulate sending directly to spaniardsinmiami@gmail.com
-      setTimeout(() => {
-        // Success feedback
+      // Send directly using FormSubmit API
+      fetch("https://formsubmit.co/ajax/spaniardsinmiami@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          Nombre: name,
+          Email: email,
+          Asunto: subject,
+          Mensaje: message,
+          _subject: `[Portal España en Miami] Nuevo mensaje de ${name}`
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
         const successMsg = AppState.lang === 'es'
           ? `¡Mensaje enviado con éxito directamente a spaniardsinmiami@gmail.com!`
           : `Message sent successfully directly to spaniardsinmiami@gmail.com!`;
         
         showToast(successMsg);
         
+        // Restore button state and reset form
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnContent;
+        contactForm.reset();
+      })
+      .catch(error => {
+        console.error("Error sending email via FormSubmit:", error);
+        const errorMsg = AppState.lang === 'es'
+          ? `Hubo un error al enviar el mensaje. Inténtalo de nuevo.`
+          : `There was an error sending your message. Please try again.`;
+        
+        showToast(errorMsg);
+        
         // Restore button state
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalBtnContent;
-        
-        // Reset form
-        contactForm.reset();
-      }, 1500);
+      });
     });
   }
 }
