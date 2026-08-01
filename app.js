@@ -1786,56 +1786,100 @@ function setupRegistrationPortal() {
     formBusiness.addEventListener('submit', (e) => {
       e.preventDefault();
       
+      const submitBtn = formBusiness.querySelector('button[type="submit"]');
+      const originalBtnContent = submitBtn.innerHTML;
+      
+      // Show loading/sending state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = AppState.lang === 'es'
+        ? '<span>Enviando...</span>'
+        : '<span>Sending...</span>';
+      
       const name = document.getElementById('regBusName').value;
       const category = document.getElementById('regBusCategory').value;
       const website = document.getElementById('regBusWebsite').value;
       const address = document.getElementById('regBusAddress').value;
       const desc = document.getElementById('regBusDesc').value;
 
-      const newId = 'user_spot_' + Date.now();
-      
-      // Simulate random coordinates in the Miami region of the map [x: 50-200, y: 50-250]
-      const x = Math.floor(60 + Math.random() * 150);
-      const y = Math.floor(60 + Math.random() * 180);
+      // Send registration form via email to spaniardsinmiami@gmail.com using FormSubmit API
+      fetch("https://formsubmit.co/ajax/spaniardsinmiami@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: `[Portal España en Miami] Nueva Solicitud de Registro de Negocio: ${name}`,
+          "Nombre del Negocio": name,
+          "Categoría": category,
+          "Sitio Web": website,
+          "Dirección": address,
+          "Descripción": desc
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        const newId = 'user_spot_' + Date.now();
+        
+        // Simulate random coordinates in the Miami region of the map [x: 50-200, y: 50-250]
+        const x = Math.floor(60 + Math.random() * 150);
+        const y = Math.floor(60 + Math.random() * 180);
 
-      const newSpot = {
-        id: newId,
-        category: category,
-        rating: 5.0,
-        ratingCount: 1,
-        coords: [x, y],
-        nameEs: name,
-        nameEn: name,
-        descEs: desc,
-        descEn: desc,
-        address: address,
-        phone: 'N/A',
-        hoursEs: 'Contacto vía web',
-        hoursEn: 'Contact via website',
-        website: website,
-        img: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=400&auto=format&fit=crop'
-      };
+        const newSpot = {
+          id: newId,
+          category: category,
+          rating: 5.0,
+          ratingCount: 1,
+          coords: [x, y],
+          nameEs: name,
+          nameEn: name,
+          descEs: desc,
+          descEn: desc,
+          address: address,
+          phone: 'N/A',
+          hoursEs: 'Contacto vía web',
+          hoursEn: 'Contact via website',
+          website: website,
+          img: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=400&auto=format&fit=crop'
+        };
 
-      // Add to HOTSPOTS datastore
-      HOTSPOTS[newId] = newSpot;
+        // Add to HOTSPOTS datastore
+        HOTSPOTS[newId] = newSpot;
 
-      // Add Map Pin Dynamically
-      addDynamicMapPin(newSpot);
+        // Add Map Pin Dynamically
+        addDynamicMapPin(newSpot);
 
-      // Re-render list
-      renderDirectoryList();
-      
-      // Highlight the new spot
-      selectHotspot(newId);
+        // Re-render list
+        renderDirectoryList();
+        
+        // Highlight the new spot
+        selectHotspot(newId);
 
-      // Close modal and reset form
-      closeModal();
-      formBusiness.reset();
+        // Close modal and reset form
+        closeModal();
+        formBusiness.reset();
 
-      // Show Toast
-      const successMsgEs = `¡Éxito! Su negocio "${name}" ha sido agregado al directorio local.`;
-      const successMsgEn = `Success! Your business "${name}" has been added to the directory.`;
-      showToast(AppState.lang === 'es' ? successMsgEs : successMsgEn);
+        // Restore button state
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnContent;
+
+        // Show Toast
+        const successMsgEs = `¡Éxito! Su solicitud de registro para "${name}" ha sido enviada a spaniardsinmiami@gmail.com y agregada localmente.`;
+        const successMsgEn = `Success! Your registration request for "${name}" has been sent to spaniardsinmiami@gmail.com and added locally.`;
+        showToast(AppState.lang === 'es' ? successMsgEs : successMsgEn);
+      })
+      .catch(error => {
+        console.error("Error submitting business registration:", error);
+        const errorMsg = AppState.lang === 'es'
+          ? `Hubo un error al enviar el registro. Inténtalo de nuevo.`
+          : `There was an error sending your registration. Please try again.`;
+        
+        showToast(errorMsg);
+        
+        // Restore button state
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnContent;
+      });
     });
   }
 
