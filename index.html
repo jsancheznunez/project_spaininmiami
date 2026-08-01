@@ -420,23 +420,31 @@
       <p class="lang-en">Discover institutions, bilingual prep schools, and the best traditional Spanish dining in
         Miami.</p>
 
-      <!-- Category tabs -->
-      <div class="filter-tabs" id="directoryFilters">
-        <button class="filter-tab active" data-category="all">
-          <span class="lang-es">Todos</span>
-          <span class="lang-en">All</span>
-        </button>
-        <button class="filter-tab" data-category="dining">
-          <span class="lang-es">Gastronomía y Copas</span>
-          <span class="lang-en">Restaurants & Bars</span>
-        </button>
-        <button class="filter-tab" data-category="institution">
-          <span class="lang-es">Instituciones y Negocios</span>
-          <span class="lang-en">Institutions & Business</span>
-        </button>
-        <button class="filter-tab" data-category="education">
-          <span class="lang-es">Educación y Colegios</span>
-          <span class="lang-en">Education & Schools</span>
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+        <!-- Category tabs -->
+        <div class="filter-tabs" id="directoryFilters" style="margin: 0;">
+          <button class="filter-tab active" data-category="all">
+            <span class="lang-es">Todos</span>
+            <span class="lang-en">All</span>
+          </button>
+          <button class="filter-tab" data-category="dining">
+            <span class="lang-es">Gastronomía y Copas</span>
+            <span class="lang-en">Restaurants & Bars</span>
+          </button>
+          <button class="filter-tab" data-category="institution">
+            <span class="lang-es">Instituciones y Negocios</span>
+            <span class="lang-en">Institutions & Business</span>
+          </button>
+          <button class="filter-tab" data-category="education">
+            <span class="lang-es">Educación y Colegios</span>
+            <span class="lang-en">Education & Schools</span>
+          </button>
+        </div>
+        <!-- Register Button -->
+        <button class="btn btn-primary" id="openRegisterModalBtn" style="padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; border-radius: var(--radius-xl);">
+          <span>➕</span>
+          <span class="lang-es">Registrar Negocio / Miembro</span>
+          <span class="lang-en">Register Business / Member</span>
         </button>
       </div>
 
@@ -1032,13 +1040,17 @@
             </div>
           </div>
 
-          <div style="background: var(--color-accent-light); padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid var(--color-accent); margin-top: auto;">
+          <div style="background: var(--color-accent-light); padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid var(--color-accent); margin-top: auto; display: flex; flex-direction: column; gap: 0.75rem;">
             <p class="lang-es" style="margin: 0; font-size: 0.82rem; color: var(--color-text-main); font-weight: 500; line-height: 1.4;">
-              <strong>¿Tienes un negocio?</strong> Regístralo en nuestro directorio interactivo o ponte en contacto con nosotros para colaborar con la comunidad.
+              <strong>¿Tienes un negocio?</strong> Regístralo en nuestro directorio interactivo para darte a conocer en la comunidad.
             </p>
             <p class="lang-en" style="margin: 0; font-size: 0.82rem; color: var(--color-text-main); font-weight: 500; line-height: 1.4;">
-              <strong>Own a business?</strong> Register it in our interactive directory or get in touch with us to collaborate with the community.
+              <strong>Own a business?</strong> Register it in our interactive directory to get noticed by the community.
             </p>
+            <button class="btn btn-secondary" id="contactRegisterBtn" style="align-self: flex-start; padding: 0.35rem 0.75rem; font-size: 0.75rem;">
+              <span class="lang-es">Registrar Negocio</span>
+              <span class="lang-en">Register Business</span>
+            </button>
           </div>
         </div>
 
@@ -1226,6 +1238,120 @@
     </div>
 
   </div>
+
+  <!-- ==================== REGISTRATION MODAL ==================== -->
+  <div class="modal-overlay" id="registerModal" style="display: none;">
+    <div class="modal-card glass-card">
+      <div class="modal-header">
+        <h3 class="lang-es" style="margin:0; color: var(--color-primary);">Registrar en la Comunidad 👥</h3>
+        <h3 class="lang-en" style="margin:0; color: var(--color-primary);">Community Registration 👥</h3>
+        <button class="close-modal-btn" id="closeRegisterModalBtn">&times;</button>
+      </div>
+
+      <div class="modal-tabs">
+        <button class="modal-tab active" id="tabOptBusiness">
+          <span class="lang-es">Negocio / Oficina</span>
+          <span class="lang-en">Business / Office</span>
+        </button>
+        <button class="modal-tab" id="tabOptMember">
+          <span class="lang-es">Miembro / Profesional</span>
+          <span class="lang-en">Community Member</span>
+        </button>
+      </div>
+
+      <div class="modal-body" style="padding-top: 1rem;">
+        <!-- Form for Business -->
+        <form id="registerBusinessForm" class="register-form active" style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="form-group">
+            <label for="regBusName">
+              <span class="lang-es">Nombre del Negocio / Oficina *</span>
+              <span class="lang-en">Business / Office Name *</span>
+            </label>
+            <input type="text" class="form-control" id="regBusName" required placeholder="Ej. Xixón Spanish Restaurant">
+          </div>
+          <div class="grid-cols-2" style="gap: 1rem;">
+            <div class="form-group">
+              <label for="regBusCategory">
+                <span class="lang-es">Categoría *</span>
+                <span class="lang-en">Category *</span>
+              </label>
+              <select class="form-control" id="regBusCategory" required style="background: var(--color-surface); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0.6rem; font-family: var(--font-sans);">
+                <option value="dining">Restaurants & Bars</option>
+                <option value="institution">Institutions & Business</option>
+                <option value="education">Education & Schools</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="regBusWebsite">
+                <span class="lang-es">Sitio Web *</span>
+                <span class="lang-en">Website *</span>
+              </label>
+              <input type="url" class="form-control" id="regBusWebsite" required placeholder="https://example.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="regBusAddress">
+              <span class="lang-es">Dirección Completa *</span>
+              <span class="lang-en">Full Address *</span>
+            </label>
+            <input type="text" class="form-control" id="regBusAddress" required placeholder="Ej. 2101 SW 22nd St, Miami, FL 33145">
+          </div>
+          <div class="form-group">
+            <label for="regBusDesc">
+              <span class="lang-es">Descripción *</span>
+              <span class="lang-en">Description *</span>
+            </label>
+            <textarea class="form-control" id="regBusDesc" rows="3" required placeholder="Describe brevemente el negocio..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; padding: 0.75rem;">
+            <span class="lang-es">Registrar Negocio</span>
+            <span class="lang-en">Register Business</span>
+          </button>
+        </form>
+
+        <!-- Form for Member -->
+        <form id="registerMemberForm" class="register-form" style="display: none; flex-direction: column; gap: 1rem;">
+          <div class="form-group">
+            <label for="regMemName">
+              <span class="lang-es">Nombre Completo *</span>
+              <span class="lang-en">Full Name *</span>
+            </label>
+            <input type="text" class="form-control" id="regMemName" required placeholder="Ej. Javier Gómez">
+          </div>
+          <div class="grid-cols-2" style="gap: 1rem;">
+            <div class="form-group">
+              <label for="regMemEmail">
+                <span class="lang-es">Email *</span>
+                <span class="lang-en">Email Address *</span>
+              </label>
+              <input type="email" class="form-control" id="regMemEmail" required placeholder="javier.gomez@email.com">
+            </div>
+            <div class="form-group">
+              <label for="regMemRole">
+                <span class="lang-es">Profesión / Rol *</span>
+                <span class="lang-en">Profession / Role *</span>
+              </label>
+              <input type="text" class="form-control" id="regMemRole" required placeholder="Ej. Ingeniero de Software / Realtor">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="regMemBio">
+              <span class="lang-es">Breve Presentación *</span>
+              <span class="lang-en">Short Bio *</span>
+            </label>
+            <textarea class="form-control" id="regMemBio" rows="3" required placeholder="Preséntate a la comunidad..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; padding: 0.75rem;">
+            <span class="lang-es">Unirse como Miembro</span>
+            <span class="lang-en">Join as Member</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" style="position: fixed; bottom: 2rem; right: 2rem; display: flex; flex-direction: column; gap: 0.75rem; z-index: 10000; pointer-events: none;"></div>
 
   <!-- Main Application Logic Script -->
   <script src="app.js"></script>

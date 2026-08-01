@@ -482,6 +482,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupChatbot();
   setupContactSection();
   initRelocationChecklist();
+  setupRegistrationPortal();
 });
 
 // ==================== THEME CONTROLLER ====================
@@ -1622,11 +1623,16 @@ function setupContactSection() {
       const subject = document.getElementById('contactSubject').value;
       const message = document.getElementById('contactMessage').value;
       
-      const successMsg = AppState.lang === 'es' 
-        ? `¡Gracias, ${name}! Tu mensaje sobre "${subject}" ha sido recibido. Nos pondremos en contacto contigo pronto en ${email}.` 
-        : `Thank you, ${name}! Your message regarding "${subject}" has been successfully received. We will get back to you shortly at ${email}.`;
+      // Construct mailto link
+      const emailBody = `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`;
+      const mailtoUrl = `mailto:spaniardsinmiami@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
       
-      alert(successMsg);
+      const alertMsg = AppState.lang === 'es'
+        ? `Abriendo tu gestor de correo para enviar el mensaje a spaniardsinmiami@gmail.com...`
+        : `Opening your email client to send the message to spaniardsinmiami@gmail.com...`;
+      
+      alert(alertMsg);
+      window.location.href = mailtoUrl;
       contactForm.reset();
     });
   }
@@ -1671,4 +1677,178 @@ function askAssistantAbout(topic) {
     input.value = promptText;
     handleUserChatMessage();
   }
+}
+
+// ==================== COMMUNITY REGISTRATION PORTAL ====================
+
+function setupRegistrationPortal() {
+  const openModalBtn = document.getElementById('openRegisterModalBtn');
+  const contactRegisterBtn = document.getElementById('contactRegisterBtn');
+  const modal = document.getElementById('registerModal');
+  const closeModalBtn = document.getElementById('closeRegisterModalBtn');
+  const tabBusiness = document.getElementById('tabOptBusiness');
+  const tabMember = document.getElementById('tabOptMember');
+  const formBusiness = document.getElementById('registerBusinessForm');
+  const formMember = document.getElementById('registerMemberForm');
+
+  if (!modal) return;
+
+  // Open modal
+  const openModal = () => {
+    modal.style.display = 'flex';
+  };
+  
+  if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+  if (contactRegisterBtn) contactRegisterBtn.addEventListener('click', openModal);
+
+  // Close modal
+  const closeModal = () => {
+    modal.style.display = 'none';
+  };
+
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Switch tabs
+  if (tabBusiness && tabMember && formBusiness && formMember) {
+    tabBusiness.addEventListener('click', () => {
+      tabBusiness.classList.add('active');
+      tabMember.classList.remove('active');
+      formBusiness.style.display = 'flex';
+      formMember.style.display = 'none';
+    });
+
+    tabMember.addEventListener('click', () => {
+      tabMember.classList.add('active');
+      tabBusiness.classList.remove('active');
+      formMember.style.display = 'flex';
+      formBusiness.style.display = 'none';
+    });
+  }
+
+  // Handle Business Submission
+  if (formBusiness) {
+    formBusiness.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('regBusName').value;
+      const category = document.getElementById('regBusCategory').value;
+      const website = document.getElementById('regBusWebsite').value;
+      const address = document.getElementById('regBusAddress').value;
+      const desc = document.getElementById('regBusDesc').value;
+
+      const newId = 'user_spot_' + Date.now();
+      
+      // Simulate random coordinates in the Miami region of the map [x: 50-200, y: 50-250]
+      const x = Math.floor(60 + Math.random() * 150);
+      const y = Math.floor(60 + Math.random() * 180);
+
+      const newSpot = {
+        id: newId,
+        category: category,
+        rating: 5.0,
+        ratingCount: 1,
+        coords: [x, y],
+        nameEs: name,
+        nameEn: name,
+        descEs: desc,
+        descEn: desc,
+        address: address,
+        phone: 'N/A',
+        hoursEs: 'Contacto vía web',
+        hoursEn: 'Contact via website',
+        website: website,
+        img: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=400&auto=format&fit=crop'
+      };
+
+      // Add to HOTSPOTS datastore
+      HOTSPOTS[newId] = newSpot;
+
+      // Add Map Pin Dynamically
+      addDynamicMapPin(newSpot);
+
+      // Re-render list
+      renderDirectoryList();
+      
+      // Highlight the new spot
+      selectHotspot(newId);
+
+      // Close modal and reset form
+      closeModal();
+      formBusiness.reset();
+
+      // Show Toast
+      const successMsgEs = `¡Éxito! Su negocio "${name}" ha sido agregado al directorio local.`;
+      const successMsgEn = `Success! Your business "${name}" has been added to the directory.`;
+      showToast(AppState.lang === 'es' ? successMsgEs : successMsgEn);
+    });
+  }
+
+  // Handle Member Submission
+  if (formMember) {
+    formMember.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('regMemName').value;
+      const email = document.getElementById('regMemEmail').value;
+      const role = document.getElementById('regMemRole').value;
+      const bio = document.getElementById('regMemBio').value;
+
+      // Close modal and reset form
+      closeModal();
+      formMember.reset();
+
+      // Show Toast
+      const successMsgEs = `¡Bienvenido, ${name}! Te has registrado como miembro de la comunidad.`;
+      const successMsgEn = `Welcome, ${name}! You have successfully registered as a member.`;
+      showToast(AppState.lang === 'es' ? successMsgEs : successMsgEn);
+    });
+  }
+}
+
+function addDynamicMapPin(spot) {
+  const svg = document.querySelector('.map-container svg');
+  if (!svg) return;
+
+  const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g.setAttribute('class', 'map-pin');
+  g.setAttribute('data-id', spot.id);
+  g.setAttribute('transform', `translate(${spot.coords[0]}, ${spot.coords[1]})`);
+
+  const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  circle.setAttribute('r', '7');
+
+  const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  text.setAttribute('y', '-10');
+  
+  let emoji = '🏢';
+  if (spot.category === 'dining') emoji = '🍷';
+  if (spot.category === 'education') emoji = '🎓';
+  text.textContent = emoji;
+
+  g.appendChild(circle);
+  g.appendChild(text);
+
+  g.addEventListener('click', () => {
+    selectHotspot(spot.id);
+  });
+
+  svg.appendChild(g);
+}
+
+function showToast(message) {
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  toast.className = 'toast-msg';
+  toast.innerHTML = `<span>✨</span> <span>${message}</span>`;
+  container.appendChild(toast);
+
+  // Auto remove after 5 seconds (matching the fadeOut animation delay)
+  setTimeout(() => {
+    toast.remove();
+  }, 5000);
 }
