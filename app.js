@@ -848,7 +848,7 @@ function getCategoryTagText(cat) {
     if (cat === 'institution') return 'Instituciones';
     if (cat === 'education') return 'Colegios e ISA';
   } else {
-    if (cat === 'dining') return 'Tapas & Dining';
+    if (cat === 'dining') return 'Restaurants & Bars';
     if (cat === 'institution') return 'Institutions';
     if (cat === 'education') return 'Schools & ISA';
   }
