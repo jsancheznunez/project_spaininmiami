@@ -165,9 +165,9 @@ const EVENTS = [
   {
     id: 'flamenco',
     category: 'culture',
-    day: '28',
-    monthEs: 'MAY',
-    monthEn: 'MAY',
+    day: '08',
+    monthEs: 'AGO',
+    monthEn: 'AUG',
     year: '2026',
     titleEs: 'Noche de Tablao Flamenco en Directo',
     titleEn: 'Live Flamenco Tablao Night',
@@ -181,9 +181,9 @@ const EVENTS = [
   {
     id: 'networking',
     category: 'business',
-    day: '03',
-    monthEs: 'JUN',
-    monthEn: 'JUN',
+    day: '13',
+    monthEs: 'AGO',
+    monthEn: 'AUG',
     year: '2026',
     titleEs: 'Mesa Redonda: Innovación Española en Florida',
     titleEn: 'Business Panel: Spanish Tech in Florida',
@@ -197,9 +197,9 @@ const EVENTS = [
   {
     id: 'rioja',
     category: 'gastronomy',
-    day: '12',
-    monthEs: 'JUN',
-    monthEn: 'JUN',
+    day: '20',
+    monthEs: 'AGO',
+    monthEn: 'AUG',
     year: '2026',
     titleEs: 'Gran Cata de Vinos: Rioja & Ribera del Duero',
     titleEn: 'Elite Spanish Wine Tasting: Rioja & Ribera',
@@ -213,9 +213,9 @@ const EVENTS = [
   {
     id: 'cinema',
     category: 'culture',
-    day: '18',
-    monthEs: 'JUN',
-    monthEn: 'JUN',
+    day: '10',
+    monthEs: 'SEP',
+    monthEn: 'SEP',
     year: '2026',
     titleEs: 'Ciclo de Cine Contemporáneo Español',
     titleEn: 'Contemporary Spanish Cinema Series',
@@ -963,15 +963,21 @@ function renderCalendarGrid() {
   const container = document.getElementById('calendarDaysGrid');
   container.innerHTML = '';
   
-  // Let's render May 2026. May starts on a Friday in 2026.
-  // Empty blocks for padding (Monday-Thursday)
-  for (let i = 0; i < 4; i++) {
+  // Set month title
+  const monthTitle = document.getElementById('calendarMonthTitle');
+  if (monthTitle) {
+    monthTitle.innerHTML = AppState.lang === 'es' ? 'Agosto 2026' : 'August 2026';
+  }
+  
+  // August 2026 starts on a Saturday.
+  // Empty blocks for padding (Monday-Friday = 5 blocks)
+  for (let i = 0; i < 5; i++) {
     const pad = document.createElement('div');
     pad.style.background = 'transparent';
     container.appendChild(pad);
   }
   
-  // Render 31 days of May
+  // Render 31 days of August
   for (let day = 1; day <= 31; day++) {
     const dayEl = document.createElement('div');
     dayEl.style.borderRadius = 'var(--radius-sm)';
@@ -986,8 +992,8 @@ function renderCalendarGrid() {
     
     const dayStr = day.toString().padStart(2, '0');
     
-    // Check if there is an event on this day (e.g. May 28)
-    const activeEv = EVENTS.find(ev => ev.day === dayStr && ev.monthEn === 'MAY');
+    // Check if there is an event on this day (e.g. August 08, 13, 20)
+    const activeEv = EVENTS.find(ev => ev.day === dayStr && ev.monthEn === 'AUG');
     
     dayEl.innerHTML = `<span style="font-weight:600; font-size:0.9rem">${day}</span>`;
     
@@ -1033,16 +1039,24 @@ function downloadEventIcs(id) {
   const title = AppState.lang === 'es' ? ev.titleEs : ev.titleEn;
   const desc = AppState.lang === 'es' ? ev.descEs : ev.descEn;
   
-  // Format iCalendar text string
+  const months = {
+    'JAN': '01', 'FEB': '02', 'MAR': '03', 'APR': '04', 'MAY': '05', 'JUN': '06',
+    'JUL': '07', 'AUG': '08', 'SEP': '09', 'OCT': '10', 'NOV': '11', 'DEC': '12'
+  };
+  const monthNum = months[ev.monthEn] || '08';
+  const dayStr = ev.day.padStart(2, '0');
+  const yearStr = ev.year || '2026';
+  
+  // Format iCalendar text string with dynamic dates
   const icsContent = 
 `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//EspanolesEnMiami//NONSGML v1.0//EN
 BEGIN:VEVENT
-UID:${ev.id}-2026@espanolesenmiami.com
-DTSTAMP:20260525T120000Z
-DTSTART:20260528T200000
-DTEND:20260528T223000
+UID:${ev.id}-${yearStr}@espanolesenmiami.com
+DTSTAMP:${yearStr}${monthNum}${dayStr}T120000Z
+DTSTART:${yearStr}${monthNum}${dayStr}T200000
+DTEND:${yearStr}${monthNum}${dayStr}T220000
 SUMMARY:${title}
 DESCRIPTION:${desc}
 LOCATION:${ev.location}
