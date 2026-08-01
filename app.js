@@ -1251,12 +1251,14 @@ function getChatbotResponse(rawQuery) {
       • <strong>Recomendación:</strong> Cuenta con la ayuda de un <em>Realtor</em> (agente inmobiliario). En Florida sus servicios son <strong>gratuitos para el inquilino o comprador</strong>, ya que sus honorarios los paga el propietario/vendedor.`;
     }
     
-    if (q.includes('desplazarse') || q.includes('transporte') || q.includes('coche') || q.includes('conducir') || q.includes('sunpass') || q.includes('metro')) {
+    if (q.includes('desplazarse') || q.includes('transporte') || q.includes('coche') || q.includes('conducir') || q.includes('sunpass') || q.includes('metro') || q.includes('trolley') || q.includes('bus') || q.includes('autobús') || q.includes('rail') || q.includes('tri-rail') || q.includes('brightline') || q.includes('brigthline')) {
       return `🚗 <strong>Cómo desplazarse por Miami:</strong><br><br>
       • <strong>Peajes (SunPass):</strong> Imprescindible para circular por las autopistas de Florida sin recargos. Compra un sticker SunPass en CVS o Publix y regístralo online.<br>
-      • <strong>Transporte Público:</strong><br>
+      • <strong>Transporte Público y Trenes:</strong><br>
       &nbsp;&nbsp;- <em>Metromover:</em> Sistema de monorraíl elevado <strong>100% gratuito</strong> que recorre Downtown y Brickell.<br>
-      &nbsp;&nbsp;- <em>Metrorail & Autobús:</em> Cruza Miami de norte a sur y llega al aeropuerto. Necesitarás una tarjeta EASY Card.<br>
+      &nbsp;&nbsp;- <em>Metrobus & Trolley:</em> El Metrobus cubre todo el condado, mientras que los Trolleys son minibuses locales **100% gratuitos** en zonas como Miami, Coral Gables y Miami Beach.<br>
+      &nbsp;&nbsp;- <em>Metrorail & Tri-Rail:</em> El Metrorail conecta áreas clave de la ciudad y el aeropuerto, y el Tri-Rail conecta Miami con los condados de Broward y Palm Beach.<br>
+      &nbsp;&nbsp;- <em>Brightline:</em> Tren de alta velocidad moderno y premium que conecta Miami con Fort Lauderdale, West Palm Beach y Orlando.<br>
       • <strong>Carné de Conducir:</strong> Con el carné español puedes conducir provisionalmente, pero debes obtener la licencia del DMV de Florida si vas a residir formalmente.`;
     }
     
@@ -1330,12 +1332,14 @@ function getChatbotResponse(rawQuery) {
       • <strong>Pro-Tip:</strong> Hire a licensed <em>Realtor</em>. In Florida, realtor services are <strong>completely free for renters or buyers</strong>, as the commissions are paid entirely by the landlord or seller.`;
     }
     
-    if (q.includes('desplazarse') || q.includes('transport') || q.includes('car') || q.includes('driving') || q.includes('sunpass') || q.includes('mover') || q.includes('rail')) {
+    if (q.includes('desplazarse') || q.includes('transport') || q.includes('car') || q.includes('driving') || q.includes('sunpass') || q.includes('mover') || q.includes('rail') || q.includes('trolley') || q.includes('metrobus') || q.includes('bus') || q.includes('brightline') || q.includes('brigthline')) {
       return `🚗 <strong>How to Get Around Miami:</strong><br><br>
       • <strong>Tolls (SunPass):</strong> Essential for Florida highways. Buy a SunPass transponder/sticker at CVS or Publix and link it to your license plate online.<br>
-      • <strong>Public Transit:</strong><br>
-      &nbsp;&nbsp;- <em>Metromover:</em> <strong>100% free</strong> automated loop transit covering Downtown and Brickell areas.<br>
-      &nbsp;&nbsp;- <em>Metrorail & Bus:</em> North-South transit linking Kendall, Brickell, Downtown, and Miami Airport. Uses the EASY Card system.<br>
+      • <strong>Public Transit & Trains:</strong><br>
+      &nbsp;&nbsp;- <em>Metromover & Trolley:</em> The Metromover loop is **100% free** in Downtown/Brickell. Trolleys are also **100% free** local shuttles running in Miami, Coral Gables, and Miami Beach.<br>
+      &nbsp;&nbsp;- <em>Metrobus & Metrorail:</em> Metrobus covers the entire county, and Metrorail connects key city centers to the airport. Both use the EASY Card system.<br>
+      &nbsp;&nbsp;- <em>Tri-Rail:</em> Commuter rail system linking Miami-Dade, Broward, and Palm Beach counties.<br>
+      &nbsp;&nbsp;- <em>Brightline:</em> Modern, premium higher-speed train connecting Downtown Miami to Fort Lauderdale, West Palm Beach, and Orlando.<br>
       • <strong>Driver's License:</strong> International permits are temporary. Schedule a test at the Florida DMV to obtain your local license.`;
     }
     
