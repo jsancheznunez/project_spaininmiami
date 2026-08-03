@@ -1324,7 +1324,7 @@ function getChatbotResponse(rawQuery) {
     if (q.includes('negocio') || q.includes('invertir') || q.includes('empresa') || q.includes('llc') || q.includes('sunbiz')) {
       return `💼 <strong>Negocios y Emprendimiento en Florida:</strong><br><br>
       • <strong>Oficina Económica y Comercial (ICEX):</strong> Promueve exportaciones e inversiones de empresas españolas en el sur de EE. UU.<br>
-      • <strong>Spain-U.S. Chamber of Commerce:</strong> Cámara de comercio oficial ubicada en Coral Gables que apoya la integración de empresas en Florida.<br>
+      • <strong><a href="https://spainuschamber.com/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Spain-U.S. Chamber of Commerce</a>:</strong> Cámara de comercio oficial ubicada en Coral Gables que apoya la integración de empresas en Florida.<br>
       • <strong>Sunbiz.org:</strong> Es el portal estatal oficial de Florida donde puedes constituir una LLC o Corp online en menos de 48 horas.<br>
       • <strong>Visados:</strong> Las visas E-2 de inversor y L-1 de transferencia corporativa son los caminos legales más comunes para empresarios españoles.`;
     }
@@ -1399,7 +1399,7 @@ function getChatbotResponse(rawQuery) {
     
     if (q.includes('school') || q.includes('educat') || q.includes('study') || q.includes('ispa') || q.includes('assistant')) {
       return `🎓 <strong>Bilingual Education in Miami:</strong><br><br>
-      • <strong>Education Office of Spain in Miami:</strong> Coordinates the official academic cooperation and visit programs from the Spanish Embassy.<br>
+      • <strong><a href="https://www.exteriores.gob.es/Consulados/miami/en/Paginas/index.aspx" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Education Office of Spain in Miami</a>:</strong> Coordinates the official academic cooperation and visit programs from the Spanish Embassy.<br>
       • <strong>ISA Program:</strong> Spain's Ministry of Education partners with Miami-Dade County Public Schools to offer high-quality bilingual tracks.<br>
       • <strong>ISPA</strong> (International Studies Preparatory Academy) in Coral Gables is an exceptional, highly-sought public school option.<br>
       • <strong>Language Assistants:</strong> Eligible Spanish educators can apply annually to teach in Florida schools through the J-1 exchange visa.`;
@@ -1407,15 +1407,15 @@ function getChatbotResponse(rawQuery) {
     
     if (q.includes('business') || q.includes('invest') || q.includes('company') || q.includes('llc') || q.includes('sunbiz')) {
       return `💼 <strong>Business & Investing in Florida:</strong><br><br>
-      • <strong>Economic & Commercial Office of Spain (ICEX):</strong> Promotes trade expansion and helps Spanish companies establish in the Southern US.<br>
-      • <strong>Spain–U.S. Chamber of Commerce:</strong> Located in Coral Gables, helps Spanish and local companies with networking and market entry.<br>
+      • <strong><a href="https://www.icex.es/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Economic & Commercial Office of Spain (ICEX)</a>:</strong> Promotes trade expansion and helps Spanish companies establish in the Southern US.<br>
+      • <strong><a href="https://spainuschamber.com/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Spain–U.S. Chamber of Commerce</a>:</strong> Located in Coral Gables, helps Spanish and local companies with networking and market entry.<br>
       • <strong>Sunbiz.org:</strong> The official State of Florida corporate registry where you can incorporate an LLC or Corp online in minutes.<br>
       • <strong>Visas:</strong> E-2 Investor visas and L-1 Intracompany Transfer visas are the standard corporate vehicles for Spanish business owners.`;
     }
     
     if (q.includes('tourism') || q.includes('travel') || q.includes('spain.info') || q.includes('visit') || q.includes('trip')) {
       return `✈️ <strong>Official Spain Tourism Resources:</strong><br><br>
-      • <strong>Tourist Office of Spain in Miami:</strong> The official Turespaña delegation located in Brickell (1395 Brickell Ave #1130). Provides physical maps, custom brochures, and destination guidance.<br>
+      • <strong><a href="https://www.tourspain.es/consejerias/miami/es/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Tourist Office of Spain in Miami</a>:</strong> The official Turespaña delegation located in Brickell (1395 Brickell Ave #1130). Provides physical maps, custom brochures, and destination guidance.<br>
       • <strong>Official Portal:</strong> Explore <a href="https://www.spain.info" target="_blank"><strong>Spain.info</strong></a> to secure comprehensive planning guides for Madrid, Barcelona, Andalusia, and cultural hotspots.<br>
       • <strong>Links of Interest Hub:</strong> Navigate to the <strong>"Links of Interest"</strong> tab and choose <strong>"Official Spain Tourism"</strong> to find entry guides, castle hotels (Paradores), and ETIAS travel rules.`;
     }
@@ -1949,3 +1949,11 @@ function showToast(message) {
     toast.remove();
   }, 5000);
 }
+
+// Expose functions used by inline onclick handlers in HTML
+window.switchSection = switchSection;
+window.filterDirectoryCategory = filterDirectoryCategory;
+window.openResourceTab = openResourceTab;
+window.toggleChecklistItem = toggleChecklistItem;
+window.askAssistantAbout = askAssistantAbout;
+window.downloadEventIcs = downloadEventIcs;
