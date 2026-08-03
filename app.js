@@ -1268,7 +1268,7 @@ function getChatbotResponse(rawQuery) {
       • <strong>Dirección:</strong> 2655 Le Jeune Rd, Coral Gables, FL 33134.<br>
       • <strong>Horario:</strong> Lunes a Viernes de 9:00 AM a 1:00 PM.<br>
       • <strong>Pasaporte:</strong> Requiere cita previa obligatoria reservada en su portal online oficial.<br>
-      • <strong>Trámite recomendado:</strong> Hazte el Alta Consular nada más llegar para facilitar cualquier renovación futura. En la pestaña <strong>"Servicios Consulares"</strong> tienes los pasos.`;
+      • <strong>Trámite recomendado:</strong> Hazte el Alta Consular nada más llegar para facilitar cualquier renovación futura. En la pestaña <strong>"Enlaces de Interés"</strong> tienes los pasos.`;
     }
     
     if (q.includes('vivienda') || q.includes('alquilar') || q.includes('alquiler') || q.includes('casa') || q.includes('apartamento') || q.includes('barrio') || q.includes('zona')) {
@@ -1333,10 +1333,10 @@ function getChatbotResponse(rawQuery) {
       return `✈️ <strong>Recursos Oficiales de Turismo de España:</strong><br><br>
       • <strong>Oficina de Turismo de España en Miami:</strong> Representación oficial de Turespaña en Brickell (1395 Brickell Ave #1130). Ofrece asesoramiento personalizado, mapas de carreteras y catálogos de destinos.<br>
       • <strong>Portal Oficial:</strong> Visita <a href="https://www.spain.info" target="_blank"><strong>Spain.info</strong></a> para guías turísticas completas de Madrid, Barcelona, Andalucía y el Camino de Santiago.<br>
-      • <strong>Pestaña Recomendada:</strong> Accede a la pestaña <strong>"Servicios Consulares"</strong> y selecciona <strong>"Turismo de España"</strong> para obtener guías de Paradores, requisitos ETIAS y estancias de turismo.`;
+      • <strong>Pestaña Recomendada:</strong> Accede a la pestaña <strong>"Enlaces de Interés"</strong> y selecciona <strong>"Turismo de España"</strong> para obtener guías de Paradores, requisitos ETIAS y estancias de turismo.`;
     }
     
-    return `¡Entendido! He registrado tu consulta sobre <em>"${rawQuery}"</em>. Puedes encontrar más detalles específicos en nuestras pestañas <strong>"Servicios Consulares"</strong> o en <strong>"Mapa y Sitios"</strong> (para servicios locales). ¿Te gustaría saber algo más específico?`;
+    return `¡Entendido! He registrado tu consulta sobre <em>"${rawQuery}"</em>. Puedes encontrar más detalles específicos en nuestras pestañas <strong>"Enlaces de Interés"</strong> o en <strong>"Mapa y Sitios"</strong> (para servicios locales). ¿Te gustaría saber algo más específico?`;
   } else {
     // English responses
     if (q.includes('tapas') || q.includes('eat') || q.includes('restaurant') || q.includes('ham') || q.includes('wine')) {
