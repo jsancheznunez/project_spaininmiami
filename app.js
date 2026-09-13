@@ -1725,6 +1725,14 @@ function askAssistantAbout(topic) {
       promptText = AppState.lang === 'es' ? '¿Cómo desplazarse por Miami y usar el transporte público o coche?' : 'How do I get around Miami using public transit or a car?';
     } else if (topic === 'utilities') {
       promptText = AppState.lang === 'es' ? '¿Cómo dar de alta la electricidad, agua e internet en Miami?' : 'How do I set up electricity, water, and internet services in Miami?';
+    } else if (topic === 'neighbors_friends') {
+      promptText = AppState.lang === 'es' ? '¿Cómo puedo conocer a mis vecinos y hacer nuevos amigos en la comunidad?' : 'How can I meet my neighbors and make new friends in the community?';
+    } else if (topic === 'neighbors_jobs') {
+      promptText = AppState.lang === 'es' ? '¿Dónde puedo encontrar u ofrecer empleo, ayuda temporal y recados?' : 'Where can I find or offer jobs, short-term help, and errands?';
+    } else if (topic === 'neighbors_help') {
+      promptText = AppState.lang === 'es' ? '¿Cómo puedo solicitar u ofrecer ayuda voluntaria en la comunidad?' : 'How can I request or offer volunteer help in the community?';
+    } else if (topic === 'neighbors_sale') {
+      promptText = AppState.lang === 'es' ? '¿Dónde puedo comprar, vender o intercambiar artículos con mis vecinos?' : 'Where can I buy, sell, or exchange items with my neighbors?';
     }
     
     input.value = promptText;
@@ -1957,3 +1965,24 @@ window.openResourceTab = openResourceTab;
 window.toggleChecklistItem = toggleChecklistItem;
 window.askAssistantAbout = askAssistantAbout;
 window.downloadEventIcs = downloadEventIcs;
+window.filterFriendsEvents = filterFriendsEvents;
+
+function filterFriendsEvents() {
+  const neighborhood = document.getElementById('friendNeighborhood').value;
+  const interest = document.getElementById('friendInterest').value;
+  const cards = document.querySelectorAll('.meetup-card');
+
+  cards.forEach(card => {
+    const cardNeighborhood = card.getAttribute('data-neighborhood');
+    const cardInterest = card.getAttribute('data-interest');
+    
+    const matchNeighborhood = neighborhood === 'all' || cardNeighborhood === neighborhood;
+    const matchInterest = interest === 'all' || cardInterest === interest;
+
+    if (matchNeighborhood && matchInterest) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}

@@ -1019,32 +1019,148 @@
       
       <div class="grid-cols-3" style="margin-top: 2rem;">
 
-        <div class="glass-card card-interactive">
+        <div class="glass-card card-interactive" onclick="document.getElementById('friends-matcher').scrollIntoView({ behavior: 'smooth' })" style="cursor: pointer;">
           <h3 style="color: var(--color-primary); margin-top: 0;">👋 <span class="lang-es">Haz Nuevos Amigos</span><span class="lang-en">Make New Friends</span></h3>
           <p class="lang-es" style="margin: 0; font-size: 0.9rem;">Para personas que quieren socializar con sus vecinos.</p>
           <p class="lang-en" style="margin: 0; font-size: 0.9rem;">For people who want to socialize with neighbors.</p>
         </div>
 
 
-        <div class="glass-card card-interactive">
+        <div class="glass-card card-interactive" onclick="askAssistantAbout('neighbors_jobs')" style="cursor: pointer;">
           <h3 style="color: var(--color-primary); margin-top: 0;">💼 <span class="lang-es">Empleo, Ayuda Temporal y Recados</span><span class="lang-en">Jobs, Short-Term Help & Neighborhood Errands</span></h3>
           <p class="lang-es" style="margin: 0; font-size: 0.9rem;">Un espacio dedicado para que los vecinos publiquen y encuentren tareas a corto plazo, labores diarias y micro-trabajos como cuidar mascotas, jardinería o hacer recados.</p>
           <p class="lang-en" style="margin: 0; font-size: 0.9rem;">A dedicated space for neighbors to post and find short-term tasks, everyday chores, and micro-jobs like pet sitting, yard work, or running errands.</p>
         </div>
 
 
-        <div class="glass-card card-interactive">
+        <div class="glass-card card-interactive" onclick="askAssistantAbout('neighbors_help')" style="cursor: pointer;">
           <h3 style="color: var(--color-primary); margin-top: 0;">🤝 <span class="lang-es">Ayuda Voluntaria</span><span class="lang-en">Help Wanted</span></h3>
           <p class="lang-es" style="margin: 0; font-size: 0.9rem;">Solicita u ofrece ayuda a otros miembros de la comunidad.</p>
           <p class="lang-en" style="margin: 0; font-size: 0.9rem;">Request or offer help to other community members.</p>
         </div>
 
-        <div class="glass-card card-interactive">
+        <div class="glass-card card-interactive" onclick="askAssistantAbout('neighbors_sale')" style="cursor: pointer;">
           <h3 style="color: var(--color-primary); margin-top: 0;">🏷️ <span class="lang-es">Compra, Venta y Gratis</span><span class="lang-en">For Sale, Free & Wanted</span></h3>
           <p class="lang-es" style="margin: 0; font-size: 0.9rem;">Intercambia, vende o regala artículos con otros miembros de la comunidad.</p>
           <p class="lang-en" style="margin: 0; font-size: 0.9rem;">Exchange, sell, or give away items with other community members.</p>
         </div>
       </div>
+
+      <!-- Make New Friends: Matcher Section -->
+      <div id="friends-matcher" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+        <h2 class="lang-es" style="font-size: 1.8rem;">Haz amigos en Miami</h2>
+        <h2 class="lang-en" style="font-size: 1.8rem;">Make New Friends in Miami</h2>
+        <p class="lang-es">Encuentra a otros vecinos con tus mismos intereses cerca de ti. Selecciona tu zona y lo que más te gusta hacer.</p>
+        <p class="lang-en">Find other neighbors with similar interests near you. Select your area and what you love to do.</p>
+
+        <!-- Filter Widget -->
+        <div class="glass-card" style="margin-top: 1.5rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; background: hsla(0, 0%, 100%, 0.8);">
+          <div style="flex: 1; min-width: 200px;">
+            <label class="lang-es" style="display: block; font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.5rem; font-weight: 600;">📍 Zona de Miami</label>
+            <label class="lang-en" style="display: block; font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.5rem; font-weight: 600;">📍 Miami Area</label>
+            <select id="friendNeighborhood" onchange="filterFriendsEvents()" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text-main); font-family: var(--font-sans);">
+              <option value="all" class="lang-es">Todas las Zonas</option>
+              <option value="all" class="lang-en">All Areas</option>
+              <option value="brickell">Brickell</option>
+              <option value="coralgables">Coral Gables</option>
+              <option value="doral">Doral</option>
+              <option value="miamibeach">Miami Beach</option>
+            </select>
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <label class="lang-es" style="display: block; font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.5rem; font-weight: 600;">🎯 Interés Principal</label>
+            <label class="lang-en" style="display: block; font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.5rem; font-weight: 600;">🎯 Primary Interest</label>
+            <select id="friendInterest" onchange="filterFriendsEvents()" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text-main); font-family: var(--font-sans);">
+              <option value="all" class="lang-es">Todos los Intereses</option>
+              <option value="all" class="lang-en">All Interests</option>
+              <option value="tapas">Tapas & Cañas</option>
+              <option value="networking">Networking Profesional</option>
+              <option value="sports">Playa & Deportes</option>
+              <option value="languages">Idiomas</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Meetup Cards Grid -->
+        <div id="friendsMeetupGrid" class="grid-cols-2" style="margin-top: 2rem;">
+          
+          <!-- Card 1 -->
+          <div class="glass-card meetup-card" data-neighborhood="brickell" data-interest="networking" style="display: flex; flex-direction: column;">
+            <div style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); padding: 1.5rem; border-radius: var(--radius-sm) var(--radius-sm) 0 0; margin: -1.5rem -1.5rem 1.5rem -1.5rem; color: white;">
+              <h3 style="color: white; margin: 0;">Networking en Brickell</h3>
+              <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.9rem;">Próximo Jueves, 7:00 PM</p>
+            </div>
+            <div style="margin-bottom: 1rem; flex-grow: 1;">
+              <span style="display: inline-block; background: var(--color-bg); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; margin-right: 0.5rem;">📍 Brickell</span>
+              <span style="display: inline-block; background: var(--color-bg); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem;">💼 Networking</span>
+              <p class="lang-es" style="margin-top: 1rem; font-size: 0.9rem;">Conecta con otros profesionales y emprendedores españoles tomando algo en el centro financiero.</p>
+              <p class="lang-en" style="margin-top: 1rem; font-size: 0.9rem;">Connect with other Spanish professionals and entrepreneurs over drinks in the financial district.</p>
+            </div>
+            <button class="btn btn-secondary" style="width: 100%;" onclick="askAssistantAbout('neighbors_friends')">
+              <span class="lang-es">Apuntarme</span><span class="lang-en">RSVP / Join</span>
+            </button>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass-card meetup-card" data-neighborhood="miamibeach" data-interest="sports" style="display: flex; flex-direction: column;">
+            <div style="background: linear-gradient(135deg, var(--color-accent), #FF9800); padding: 1.5rem; border-radius: var(--radius-sm) var(--radius-sm) 0 0; margin: -1.5rem -1.5rem 1.5rem -1.5rem; color: white;">
+              <h3 style="color: white; margin: 0;">Vóley Playa</h3>
+              <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.9rem;">Sábado, 10:00 AM</p>
+            </div>
+            <div style="margin-bottom: 1rem; flex-grow: 1;">
+              <span style="display: inline-block; background: var(--color-bg); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; margin-right: 0.5rem;">📍 Miami Beach</span>
+              <span style="display: inline-block; background: var(--color-bg); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem;">🏐 Playa & Deportes</span>
+              <p class="lang-es" style="margin-top: 1rem; font-size: 0.9rem;">Partido informal de vóley playa seguido de un baño y aperitivo. ¡Nivel principiante bienvenido!</p>
+              <p class="lang-en" style="margin-top: 1rem; font-size: 0.9rem;">Casual beach volleyball game followed by a swim and snacks. Beginners welcome!</p>
+            </div>
+            <button class="btn btn-secondary" style="width: 100%;" onclick="askAssistantAbout('neighbors_friends')">
+              <span class="lang-es">Apuntarme</span><span class="lang-en">RSVP / Join</span>
+            </button>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-card meetup-card" data-neighborhood="coralgables" data-interest="tapas" style="display: flex; flex-direction: column;">
+            <div style="background: linear-gradient(135deg, #E91E63, var(--color-primary)); padding: 1.5rem; border-radius: var(--radius-sm) var(--radius-sm) 0 0; margin: -1.5rem -1.5rem 1.5rem -1.5rem; color: white;">
+              <h3 style="color: white; margin: 0;">Tardeo y Tapas</h3>
+              <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.9rem;">Viernes, 6:00 PM</p>
+            </div>
+            <div style="margin-bottom: 1rem; flex-grow: 1;">
+              <span style="display: inline-block; background: var(--color-bg); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; margin-right: 0.5rem;">📍 Coral Gables</span>
+              <span style="display: inline-block; background: var(--color-bg); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem;">🍷 Tapas & Cañas</span>
+              <p class="lang-es" style="margin-top: 1rem; font-size: 0.9rem;">Nos reunimos para tomar unas cañas y picar algo. La mejor forma de acabar la semana laboral.</p>
+              <p class="lang-en" style="margin-top: 1rem; font-size: 0.9rem;">Meeting up for some beers and tapas. The best way to end the work week.</p>
+            </div>
+            <button class="btn btn-secondary" style="width: 100%;" onclick="askAssistantAbout('neighbors_friends')">
+              <span class="lang-es">Apuntarme</span><span class="lang-en">RSVP / Join</span>
+            </button>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="glass-card meetup-card" data-neighborhood="doral" data-interest="languages" style="display: flex; flex-direction: column;">
+            <div style="background: linear-gradient(135deg, #4CAF50, #009688); padding: 1.5rem; border-radius: var(--radius-sm) var(--radius-sm) 0 0; margin: -1.5rem -1.5rem 1.5rem -1.5rem; color: white;">
+              <h3 style="color: white; margin: 0;">Intercambio de Idiomas</h3>
+              <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.9rem;">Miércoles, 7:30 PM</p>
+            </div>
+            <div style="margin-bottom: 1rem; flex-grow: 1;">
+              <span style="display: inline-block; background: var(--color-bg); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; margin-right: 0.5rem;">📍 Doral</span>
+              <span style="display: inline-block; background: var(--color-bg); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem;">🗣️ Idiomas</span>
+              <p class="lang-es" style="margin-top: 1rem; font-size: 0.9rem;">Practica tu inglés o ayuda a otros con su español mientras tomamos un café.</p>
+              <p class="lang-en" style="margin-top: 1rem; font-size: 0.9rem;">Practice your English or help others with their Spanish over a cup of coffee.</p>
+            </div>
+            <button class="btn btn-secondary" style="width: 100%;" onclick="askAssistantAbout('neighbors_friends')">
+              <span class="lang-es">Apuntarme</span><span class="lang-en">RSVP / Join</span>
+            </button>
+          </div>
+
+        </div>
+        
+        <!-- Main CTA -->
+        <div style="text-align: center; margin-top: 3rem;">
+          <button class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem; border-radius: 30px;" onclick="askAssistantAbout('neighbors_friends')">
+            <span class="lang-es">💬 Unirse al Chat de la Comunidad</span>
+            <span class="lang-en">💬 Join the Community Chat</span>
+          </button>
+        </div>
     </section>
 
     <section class="app-section" id="sec-contact">
