@@ -165,66 +165,66 @@ const EVENTS = [
   {
     id: 'flamenco',
     category: 'culture',
-    day: '08',
-    monthEs: 'AGO',
-    monthEn: 'AUG',
+    day: '15',
+    monthEs: 'SEP',
+    monthEn: 'SEP',
     year: '2026',
-    titleEs: 'Noche de Tablao Flamenco en Directo',
-    titleEn: 'Live Flamenco Tablao Night',
-    descEs: 'Disfruta de la pasión de la guitarra, el cante y el baile flamenco a cargo del elenco estelar del Centro Cultural Español en Miami.',
-    descEn: 'Experience the raw passion of guitar, cante, and flamenco dance performed by premier Spanish artists at CCEMiami.',
-    location: 'CCEMiami, Edificio Omnicentre',
+    titleEs: 'Festival Flamenco de Otoño',
+    titleEn: 'Fall Flamenco Festival',
+    descEs: 'Gran festival de cante, toque y baile flamenco con artistas invitados directamente desde Andalucía.',
+    descEn: 'Major flamenco festival featuring guest artists directly from Andalusia.',
+    location: 'Adrienne Arsht Center',
     time: '8:00 PM',
-    priceEs: '$25 (Copas incluidas)',
-    priceEn: '$25 (Drinks included)'
+    priceEs: '$45 - $95',
+    priceEn: '$45 - $95'
   },
   {
     id: 'networking',
     category: 'business',
-    day: '13',
-    monthEs: 'AGO',
-    monthEn: 'AUG',
+    day: '22',
+    monthEs: 'SEP',
+    monthEn: 'SEP',
     year: '2026',
-    titleEs: 'Mesa Redonda: Innovación Española en Florida',
-    titleEn: 'Business Panel: Spanish Tech in Florida',
-    descEs: 'Conferencia y mesa redonda con líderes de startups españolas implantadas en Miami. Ideal para networking, inversión y carreras profesionales.',
-    descEn: 'Keynote and panel discussion with founders of Spanish tech scaleups established in South Florida. Ideal for networking and career growth.',
-    location: 'Spain-US Chamber of Commerce, Brickell',
-    time: '6:30 PM',
-    priceEs: 'Gratuito (Registro previo)',
-    priceEn: 'Free (RSVP Required)'
+    titleEs: 'Cumbre de Negocios Hispano-Estadounidense',
+    titleEn: 'Spanish-American Business Summit',
+    descEs: 'Encuentro anual de empresarios e inversores españoles y locales para fomentar alianzas estratégicas.',
+    descEn: 'Annual gathering of Spanish and local entrepreneurs and investors to foster strategic alliances.',
+    location: 'InterContinental Miami',
+    time: '9:00 AM',
+    priceEs: '$150 (Incluye almuerzo)',
+    priceEn: '$150 (Lunch included)'
   },
   {
-    id: 'rioja',
+    id: 'paella',
     category: 'gastronomy',
-    day: '20',
-    monthEs: 'AGO',
-    monthEn: 'AUG',
+    day: '05',
+    monthEs: 'OCT',
+    monthEn: 'OCT',
     year: '2026',
-    titleEs: 'Gran Cata de Vinos: Rioja & Ribera del Duero',
-    titleEn: 'Elite Spanish Wine Tasting: Rioja & Ribera',
-    descEs: 'Sumérgete en la cultura vinícola de España con un sumiller experto. Degustación de 5 reservas exclusivas maridados con quesos y jamón.',
-    descEn: 'Immerse yourself in Spain’s legendary terroirs with an expert sommelier. Sample 5 select reserves paired with artisanal cheeses and cured meats.',
-    location: 'Xixón Spanish Restaurant Cellar',
-    time: '7:00 PM',
-    priceEs: '$65 por persona',
-    priceEn: '$65 per person'
+    titleEs: 'Concurso Internacional de Paellas',
+    titleEn: 'International Paella Contest',
+    descEs: 'Ven a degustar las mejores paellas preparadas por chefs internacionales. Música, baile y premios.',
+    descEn: 'Come taste the best paellas prepared by international chefs. Music, dancing, and prizes.',
+    location: 'Miami-Dade County Fair & Exposition',
+    time: '12:00 PM',
+    priceEs: '$30 Entrada General',
+    priceEn: '$30 General Admission'
   },
   {
     id: 'cinema',
     category: 'culture',
-    day: '10',
-    monthEs: 'SEP',
-    monthEn: 'SEP',
+    day: '18',
+    monthEs: 'OCT',
+    monthEn: 'OCT',
     year: '2026',
-    titleEs: 'Ciclo de Cine Contemporáneo Español',
-    titleEn: 'Contemporary Spanish Cinema Series',
-    descEs: 'Proyección al aire libre de galardonados largometrajes y cortometrajes españoles nominados a los Premios Goya con debate posterior.',
-    descEn: 'Outdoor screening of acclaimed Spanish indie feature films and shorts nominated for Goya Awards, followed by director Q&As.',
-    location: 'Tower Theater, Little Havana',
-    time: '7:30 PM',
-    priceEs: '$12 General / $8 Socios',
-    priceEn: '$12 General / $8 Members'
+    titleEs: 'Muestra de Cine Español Reciente',
+    titleEn: 'Recent Spanish Cinema Showcase',
+    descEs: 'Proyecciones de los últimos éxitos de taquilla y películas premiadas en España. Q&A con directores.',
+    descEn: 'Screenings of recent box office hits and award-winning films in Spain. Q&A with directors.',
+    location: 'Coral Gables Art Cinema',
+    time: '6:00 PM',
+    priceEs: '$15 por sesión',
+    priceEn: '$15 per session'
   }
 ];
 
@@ -966,19 +966,19 @@ function renderCalendarGrid() {
   // Set month title
   const monthTitle = document.getElementById('calendarMonthTitle');
   if (monthTitle) {
-    monthTitle.innerHTML = AppState.lang === 'es' ? 'Agosto 2026' : 'August 2026';
+    monthTitle.innerHTML = AppState.lang === 'es' ? 'Septiembre 2026' : 'September 2026';
   }
   
-  // August 2026 starts on a Saturday.
-  // Empty blocks for padding (Monday-Friday = 5 blocks)
-  for (let i = 0; i < 5; i++) {
+  // September 2026 starts on a Tuesday.
+  // Empty blocks for padding (Monday = 1 block)
+  for (let i = 0; i < 1; i++) {
     const pad = document.createElement('div');
     pad.style.background = 'transparent';
     container.appendChild(pad);
   }
   
-  // Render 31 days of August
-  for (let day = 1; day <= 31; day++) {
+  // Render 30 days of September
+  for (let day = 1; day <= 30; day++) {
     const dayEl = document.createElement('div');
     dayEl.style.borderRadius = 'var(--radius-sm)';
     dayEl.style.border = '1px solid var(--color-border)';
@@ -992,8 +992,8 @@ function renderCalendarGrid() {
     
     const dayStr = day.toString().padStart(2, '0');
     
-    // Check if there is an event on this day (e.g. August 08, 13, 20)
-    const activeEv = EVENTS.find(ev => ev.day === dayStr && ev.monthEn === 'AUG');
+    // Check if there is an event on this day (e.g. September)
+    const activeEv = EVENTS.find(ev => ev.day === dayStr && ev.monthEn === 'SEP');
     
     dayEl.innerHTML = `<span style="font-weight:600; font-size:0.9rem">${day}</span>`;
     
